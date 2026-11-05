@@ -11,5 +11,5 @@ cd daten && python3 hiq.py && cd ..   # Fallstudie HIQ (Umriss: daten/hiq.geojso
 pdflatex kurzanalyse.tex && biber kurzanalyse && pdflatex kurzanalyse.tex && pdflatex kurzanalyse.tex
 ```
 
-Voraussetzungen: Python 3 mit geopandas, matplotlib; TeX mit pgfplots, datatool, siunitx.
-Daten: Geoportal Berlin, Datenlizenz Deutschland – Zero – 2.0.
+Voraussetzungen: Python 3 mit geopandas, matplotlib; TeX mit KOMA-Script, TikZ, datatool, siunitx, biblatex (biber), draftwatermark.
+Code: MIT (siehe `LICENSE`). Text: CC BY 4.0. Daten: Geoportal Berlin, Datenlizenz Deutschland – Zero – 2.0.
