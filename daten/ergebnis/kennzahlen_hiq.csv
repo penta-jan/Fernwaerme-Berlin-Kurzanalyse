@@ -1,0 +1,25 @@
+schluessel,wert,einheit,beschreibung
+hiq-ha,222.450004,ha,Fläche des HIQ-Umrisses
+hiq-innerhalb-bloecke,28.0,Blöcke,Blöcke (innerhalb)
+hiq-innerhalb-gas,367.18142,GWh,Gas 2023 (innerhalb)
+hiq-innerhalb-fw,95.69046,GWh,Fernwärme 2023 (innerhalb)
+hiq-schneidet-bloecke,57.0,Blöcke,Blöcke (schneidet)
+hiq-schneidet-gas,372.94311,GWh,Gas 2023 (schneidet)
+hiq-schneidet-fw,143.59107,GWh,Fernwärme 2023 (schneidet)
+hiq-mehrheit-bloecke,38.0,Blöcke,Blöcke (mehrheit)
+hiq-mehrheit-gas,372.80326,GWh,Gas 2023 (mehrheit)
+hiq-mehrheit-fw,139.69861,GWh,Fernwärme 2023 (mehrheit)
+hiq-gas-mit-wert,11.0,Blöcke,Gasblöcke mit Wert
+hiq-gesperrt,6.0,Blöcke,Gasblöcke gesperrt
+hiq-fw-mit-wert,10.0,Blöcke,Fernwärmeblöcke mit Wert
+hiq-gas-top2,298.13757,GWh,Gas der zwei größten Blöcke
+hiq-gas-top1,187.46987,GWh,Gas des größten Blocks
+hiq-top1-ha,7.861925,ha,Fläche des größten Blocks
+hiq-top2-ha,41.501836,ha,Fläche der zwei größten Blöcke
+hiq-gesperrt-ha,30.598946,ha,Fläche gesperrter Blöcke
+hiq-blockflaeche-ha,145.990603,ha,Blockfläche HIQ (innerhalb)
+berlin-blockflaeche-ha,79384.487474,ha,Blockfläche Berlin
+berlin-gas-gwh,13546.83479,GWh,Gas 2023 Berlin (sichtbar)
+berlin-bloecke,16390.0,Blöcke,Blöcke Berlin
+berlin-gesperrt,1790.0,Blöcke,Gasblöcke gesperrt Berlin
+hiq-gas-netz,355.615642,GWh,Gas in Wärmenetzgebieten 2045 (HIQ)

@@ -1,0 +1,32 @@
+schluessel,wert,einheit,beschreibung
+gas-bez-2021,19.27219,TWh,Gasverbrauch Berlin 2021 (Bezirkssumme)
+fw-bez-2021,9.37408,TWh,Fernwärmeverbrauch Berlin 2021 (Bezirkssumme)
+gas-bez-2023,15.71807,TWh,Gasverbrauch Berlin 2023 (Bezirkssumme)
+fw-bez-2023,8.32077,TWh,Fernwärmeverbrauch Berlin 2023 (Bezirkssumme)
+bloecke,16390.0,,Statistische Blöcke in Berlin
+gas-gesperrt-2023,1790.0,Blöcke,Gasblöcke gesperrt (Datenschutz) 2023
+gas-gesperrt-2022,1789.0,Blöcke,Gasblöcke gesperrt (Datenschutz) 2022
+gas-gesperrt-2021,1175.0,Blöcke,Gasblöcke gesperrt (Datenschutz) 2021
+gas-gesperrt-2020,1189.0,Blöcke,Gasblöcke gesperrt (Datenschutz) 2020
+gas-gemeldet,10132.0,Blöcke,Gasblöcke mit Wert 2023
+gas-keine-angabe,4468.0,Blöcke,Gasblöcke ohne Angabe 2023
+gas-block-2023,13.546835,TWh,Summe sichtbarer Gas-Blockwerte 2023
+fw-block-2023,6.799055,TWh,Summe sichtbarer Fernwärme-Blockwerte 2023
+fw-mit-wert,2509.0,Blöcke,Fernwärmeblöcke mit Wert 2023
+gas-und-fw,1550.0,Blöcke,Blöcke mit Gas- und Fernwärmewert
+gas-bestand,3.924837,TWh,Gas 2023 in: Wärmenetzgebiet – Bestand
+gas-erw30,1.604149,TWh,Gas 2023 in: Erschließung bis 2030
+gas-erw35,0.651824,TWh,Gas 2023 in: Erschließung 2030–2035
+gas-erw40,0.526185,TWh,Gas 2023 in: Erschließung 2035–2040
+gas-erw45,0.751673,TWh,Gas 2023 in: Erschließung 2040–2045
+gas-pruefhoch,1.950962,TWh,Gas 2023 in: Prüfgebiet – hohe Wärmenetzeignung
+gas-pruefgeg,1.731355,TWh,Gas 2023 in: Prüfgebiet – Wärmenetzeignung gegeben
+gas-dezentral,1.708546,TWh,Gas 2023 in: Dezentrale Versorgung
+gas-ohne,0.687609,TWh,Gas 2023 in: Ohne relevanten Wärmebedarf
+gas-pruef,3.682317,TWh,Gas 2023 in Prüfgebieten (beide Typen)
+gas-netz-2045,7.458669,TWh,Gas 2023 in Wärmenetzgebieten 2045
+gesperrt-netz,864.141366,Block-Äq.,Gesperrte Gasblöcke in Wärmenetzgebieten 2045
+gesperrt-bestand,612.771588,Block-Äq.,Gesperrte Gasblöcke in Fernwärme-Bestandsgebieten
+gas-sichtbar-ov,13.53714,TWh,Gas in der Verschneidung (Kontrolle)
+gas-bew-allein,5.61284,TWh,Gas 2023 in Netzgebieten mit BEW als einzigem Betreiber
+gas-bew-alle,5.847528,TWh,Gas 2023 in Netzgebieten mit BEW-Beteiligung

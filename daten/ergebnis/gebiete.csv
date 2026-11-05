@@ -1,0 +1,10 @@
+id,name,gas-twh,gesperrt,farbe
+bestand,Wärmenetzgebiet – Bestand,3.9248,612.8,wp-bestand
+erw30,Erschließung bis 2030,1.6041,145.3,wp-erw30
+erw35,Erschließung 2030–2035,0.6518,40.3,wp-erw35
+erw40,Erschließung 2035–2040,0.5262,37.9,wp-erw40
+erw45,Erschließung 2040–2045,0.7517,27.8,wp-erw45
+pruefhoch,Prüfgebiet – hohe Wärmenetzeignung,1.951,154.7,wp-pruefhoch
+pruefgeg,Prüfgebiet – Wärmenetzeignung gegeben,1.7314,129.1,wp-pruefgeg
+dezentral,Dezentrale Versorgung,1.7085,311.2,wp-dezentral
+ohne,Ohne relevanten Wärmebedarf,0.6876,328.5,wp-ohne

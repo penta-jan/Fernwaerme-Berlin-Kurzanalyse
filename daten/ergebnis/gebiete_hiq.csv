@@ -1,0 +1,5 @@
+id,name,gas-gwh,farbe
+bestand,Wärmenetzgebiet – Bestand,139.148,wp-bestand
+erw30,Erschließung bis 2030,216.468,wp-erw30
+pruefhoch,Prüfgebiet – hohe Wärmenetzeignung,0.162,wp-pruefhoch
+ohne,Ohne relevanten Wärmebedarf,11.376,wp-ohne

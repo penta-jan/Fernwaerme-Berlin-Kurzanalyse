@@ -1,0 +1,210 @@
+%% zkopipeline.sty -- visualise site-level data from a CSV file with TikZ
+%% Jan Suchanek, 2026. Lean, documented successor of zkodatadisplay.sty.
+%%
+%% Conventions
+%%   * Data files use a decimal POINT (machine format). Locale formatting
+%%     (decimal comma, thousands separator) is done only on output, by siunitx.
+%%   * All arithmetic uses \fpeval (LaTeX3 floating point): full precision,
+%%     no TeX dimension limit, no extra package.
+%%   * Comparisons are numerical (\fpeval{a > b}), never string or \ifdim tests.
+%%   * Every drawing macro returns its totals in global macros
+%%     (\zkoresult, \zkofutureresult) so the text can reuse them.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{zkopipeline}[2026/11/03 v1.0 site data maps]
+
+\RequirePackage{tikz}
+\RequirePackage{datatool}
+\RequirePackage{siunitx}
+\RequirePackage{xcolor}
+\RequirePackage{amssymb}
+
+\definecolor{zkolight}{RGB}{230,70,129}
+\definecolor{zkodark}{RGB}{103,45,123}
+\definecolor{zkoel}{RGB}{0,138,235}
+\definecolor{zkogas}{RGB}{240,180,40}
+\definecolor{zkoheat}{RGB}{230,70,129}
+
+%% ---------------------------------------------------------------------
+%% Numbers in text
+%% ---------------------------------------------------------------------
+% \zkonum[<digits>]{<expr>}  evaluate and print, rounded (default: 1 digit)
+\newcommand\zkonum[2][1]{%
+  \num[round-mode=places,round-precision=#1]{\fpeval{#2}}}
+
+% \zkotest{<boolean fp expression>}{<true>}{<false>}
+\newcommand\zkotest[3]{\ifnum\fpeval{#1}=1 #2\else #3\fi}
+
+% internal: store result in optional macro #1 (if given)
+\newcommand\zko@store[2]{%
+  \if\relax\detokenize{#1}\relax\else\xdef#1{#2}\fi}
+
+% \zkoshare[\store]{<part>}{<whole>}   share in percent:  100 * part / whole
+\newcommand\zkoshare[3][]{%
+  \zkotest{(#3) == 0}{n/a}{%
+    \edef\zko@res{\fpeval{100*(#2)/(#3)}}%
+    \zko@store{#1}{\zko@res}%
+    \num[round-mode=places,round-precision=1]{\zko@res}\,\%}}
+
+% \zkogrowth[\store]{<old>}{<new>}     change in percent: 100 * (new - old) / old
+\newcommand\zkogrowth[3][]{%
+  \zkotest{(#2) == 0}{n/a}{%
+    \edef\zko@res{\fpeval{100*((#3)-(#2))/(#2)}}%
+    \zko@store{#1}{\zko@res}%
+    \num[round-mode=places,round-precision=1,print-implicit-plus]{\zko@res}\,\%}}
+
+% \zkoratio[\store]{<old>}{<new>}      factor:            new / old
+\newcommand\zkoratio[3][]{%
+  \zkotest{(#2) == 0}{n/a}{%
+    \edef\zko@res{\fpeval{(#3)/(#2)}}%
+    \zko@store{#1}{\zko@res}%
+    \num[round-mode=places,round-precision=2]{\zko@res}}}
+
+% \zkototal{<db>}{<column>}{\store}    column sum, stored with full precision
+\newcommand\zkototal[3]{%
+  \gdef#3{0}%
+  \DTLforeach*{#1}{\zko@v=#2}{\xdef#3{\fpeval{#3+\zko@v}}}}
+
+%% ---------------------------------------------------------------------
+%% Options shared by the drawing macros
+%% ---------------------------------------------------------------------
+\pgfkeys{/zko/.cd,
+  unit/.store in=\zko@unit,
+  scale/.store in=\zko@scale,     % cm per sqrt(unit): circle radius = scale*sqrt(value)
+  ring/.store in=\zko@ring,       % radius of the ring on which the sites sit
+  future/.store in=\zko@future,   % column holding a growth factor (optional)
+  width/.store in=\zko@width,     % bar charts: length of the longest bar in cm
+  mesh/.is if=zko@mesh,           % draw the connecting lines between sites
+  color/.store in=\zko@colcol,    % bar charts: column holding a colour name per row
+}
+\newif\ifzko@mesh
+\newcommand\zko@defaults{\pgfkeys{/zko/.cd,unit={},scale=0.25,ring=4cm,
+  future={},width=7,mesh=true,color={}}}
+
+% position of row i of n on the ring, starting at 12 o'clock, clockwise
+\newcommand\zko@angle[2]{\fpeval{90-360*(#1-1)/(#2)}}
+
+\newcommand\zko@drawmesh[1]{%
+  \ifzko@mesh
+    \foreach \i in {1,...,#1}{\foreach \j in {\i,...,#1}{%
+      \draw[zkodark!15] (\zko@angle{\i}{#1}:\zko@ring) -- (\zko@angle{\j}{#1}:\zko@ring);}}%
+  \fi}
+
+%% ---------------------------------------------------------------------
+%% \zkomap[<options>]{<db>}{<column>}
+%%   One circle per site; circle AREA is proportional to the value.
+%%   Option future=<column>: dashed circle for value * factor (factor >= 1).
+%%   Returns \zkoresult (sum) and, with future, \zkofutureresult.
+%% ---------------------------------------------------------------------
+\newcommand\zkomap[3][]{%
+  \begingroup
+  \zko@defaults\pgfkeys{/zko/.cd,#1}%
+  \edef\zko@n{\DTLrowcount{#2}}%
+  \ifx\zko@future\@empty\def\zko@fcol{#3}\else\let\zko@fcol\zko@future\fi
+  \gdef\zkoresult{0}\gdef\zkofutureresult{0}%
+  \begin{tikzpicture}[font=\sffamily\footnotesize]
+    \zko@drawmesh{\zko@n}%
+    % column names must be expanded before \DTLforeach reads them
+    \edef\zko@tmp{\noexpand\zko@mapitems{#2}{#3}{\zko@fcol}}\zko@tmp
+    \node[draw,rounded corners,fill=white,align=center] at (0,0)
+      {$\Sigma$ \zkonum{\zkoresult}\,\zko@unit\\
+       mean \zkonum{\zkoresult/\zko@n}\,\zko@unit
+       \ifx\zko@future\@empty\else\\[2pt]future: \zkonum{\zkofutureresult}\,\zko@unit\fi};
+  \end{tikzpicture}%
+  \endgroup}
+
+\newcommand\zko@mapitems[3]{%
+  \DTLforeach*{#1}{\zko@id=id,\zko@val=#2,\zko@fac=#3}{%
+    \edef\zko@a{\zko@angle{\DTLcurrentindex}{\zko@n}}%
+    \xdef\zkoresult{\fpeval{\zkoresult+\zko@val}}%
+    \ifx\zko@future\@empty\else
+      \edef\zko@fv{\fpeval{\zko@val*\zko@fac}}%
+      \xdef\zkofutureresult{\fpeval{\zkofutureresult+\zko@fv}}%
+      \zkotest{\zko@fac > 1.005}{%
+        \draw[zkolight,thick,dashed,fill=zkolight!8]
+          (\zko@a:\zko@ring) circle ({\fpeval{\zko@scale*sqrt(\zko@fv)}cm});
+        \node[zkolight,above=9pt,fill=white,inner sep=1pt] at (\zko@a:\zko@ring)
+          {\scriptsize$\times$\zkonum[2]{\zko@fac}};}{}%
+    \fi
+    \fill[zkolight!30,draw=zkodark]
+      (\zko@a:\zko@ring) circle ({\fpeval{\zko@scale*sqrt(\zko@val)}cm});
+    \node[fill=white,inner sep=1pt,font=\sffamily\small\bfseries]
+      at (\zko@a:\zko@ring) {\MakeUppercase{\zko@id}};
+    \node[draw=zkodark,rounded corners,fill=white,align=center,inner sep=2pt]
+      at (\zko@a:\zko@ring+2.2cm)
+      {\zkonum{\zko@val}\,\zko@unit
+       \ifx\zko@future\@empty\else\\{\color{zkolight}$\to$ \zkonum{\zko@fv}}\fi};
+  }}
+
+%% ---------------------------------------------------------------------
+%% \zkopies[<options>]{<db>}{<col 1>}{<col 2>}{<col 3>}
+%%   One pie per site with three shares (e.g. electricity, gas, heat);
+%%   pie AREA is proportional to the sum. Returns \zkoresult (sum of sums).
+%% ---------------------------------------------------------------------
+\newcommand\zkopies[5][]{%
+  \begingroup
+  \zko@defaults\pgfkeys{/zko/.cd,#1}%
+  \edef\zko@n{\DTLrowcount{#2}}%
+  \gdef\zkoresult{0}%
+  \begin{tikzpicture}[font=\sffamily\footnotesize]
+    \zko@drawmesh{\zko@n}%
+    \DTLforeach*{#2}{\zko@id=id,\zko@x=#3,\zko@y=#4,\zko@z=#5}{%
+      \edef\zko@a{\zko@angle{\DTLcurrentindex}{\zko@n}}%
+      \edef\zko@t{\fpeval{\zko@x+\zko@y+\zko@z}}%
+      \xdef\zkoresult{\fpeval{\zkoresult+\zko@t}}%
+      \coordinate (P) at (\zko@a:\zko@ring);
+      \zkotest{\zko@t > 0}{%
+        \edef\zko@r{\fpeval{\zko@scale*sqrt(\zko@t)}}%
+        \edef\zko@s{90}%
+        \edef\zko@e{\fpeval{90-360*\zko@x/\zko@t}}%
+        \fill[zkoel] (P) -- ++(\zko@s:\zko@r cm) arc[start angle=\zko@s,end angle=\zko@e,radius=\zko@r cm] -- cycle;
+        \edef\zko@s{\zko@e}\edef\zko@e{\fpeval{\zko@s-360*\zko@y/\zko@t}}%
+        \fill[zkogas] (P) -- ++(\zko@s:\zko@r cm) arc[start angle=\zko@s,end angle=\zko@e,radius=\zko@r cm] -- cycle;
+        \edef\zko@s{\zko@e}%
+        \fill[zkoheat] (P) -- ++(\zko@s:\zko@r cm) arc[start angle=\zko@s,end angle=-270,radius=\zko@r cm] -- cycle;
+        \draw[white] (P) circle (\zko@r cm);
+        \node[draw=zkodark,rounded corners,fill=white,align=center,inner sep=2pt]
+          at (\zko@a:\zko@ring+2.2cm)
+          {\textbf{\MakeUppercase{\zko@id}}\\[1pt]
+           \scriptsize\zkonum[0]{100*\zko@x/\zko@t}\,/\,\zkonum[0]{100*\zko@y/\zko@t}\,/\,\zkonum[0]{100*\zko@z/\zko@t}\,\%};
+      }{%
+        \draw[dashed] (P) circle (0.3cm) node {n/a};}%
+    }
+    \node[align=left,font=\sffamily\scriptsize] at (0,0)
+      {\textcolor{zkoel}{$\blacksquare$} electricity\\
+       \textcolor{zkogas}{$\blacksquare$} gas\\
+       \textcolor{zkoheat}{$\blacksquare$} district heat};
+  \end{tikzpicture}%
+  \endgroup}
+
+%% ---------------------------------------------------------------------
+%% \zkobars[<options>]{<db>}{<column>}
+%%   Horizontal bars in the row order of the data (prepare.py sorts by size).
+%%   Better than circles when values must be compared precisely.
+%%   Option color=<column>: that column holds a colour name per row (e.g. the
+%%   colour of the same category in a map); otherwise all bars are zkodark.
+%% ---------------------------------------------------------------------
+\newcommand\zkobars[3][]{%
+  \begingroup
+  \zko@defaults\pgfkeys{/zko/.cd,#1}%
+  \ifx\zko@colcol\@empty\def\zko@ccol{#3}\else\let\zko@ccol\zko@colcol\fi
+  \gdef\zko@max{0}\gdef\zkoresult{0}%
+  \DTLforeach*{#2}{\zko@val=#3}{%
+    \xdef\zko@max{\fpeval{max(\zko@max,\zko@val)}}%
+    \xdef\zkoresult{\fpeval{\zkoresult+\zko@val}}}%
+  \begin{tikzpicture}[font=\sffamily\footnotesize]
+    \edef\zko@tmp{\noexpand\zko@baritems{#2}{#3}{\zko@ccol}}\zko@tmp
+  \end{tikzpicture}%
+  \endgroup}
+
+\newcommand\zko@baritems[3]{%
+  \DTLforeach*{#1}{\zko@name=name,\zko@val=#2,\zko@col=#3}{%
+    \edef\zko@y{\fpeval{-0.6*\DTLcurrentindex}}%
+    \edef\zko@w{\fpeval{\zko@max > 0 ? \zko@width*\zko@val/\zko@max : 0}}%
+    \ifx\zko@colcol\@empty\def\zko@fill{zkodark!70}\else\let\zko@fill\zko@col\fi
+    \filldraw[fill=\zko@fill,draw=black!35,line width=0.3pt]
+      (0,\zko@y) rectangle (\zko@w cm,\zko@y+0.42);
+    \node[left] at (0,\zko@y+0.21) {\zko@name};
+    \node[right] at (\zko@w cm,\zko@y+0.21) {\zkonum{\zko@val}\,\zko@unit};
+  }}
+
+\endinput
