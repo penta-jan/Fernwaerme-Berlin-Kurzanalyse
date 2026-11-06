@@ -7,7 +7,10 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{graphicx}
-\usepackage{soul}
+\usepackage{soul}\sethlcolor{yellow!35}
+\usepackage{subcaption}
+\captionsetup{font=small,labelfont=bf,labelsep=space}
+\captionsetup[sub]{font=small,labelfont=bf}
 \usepackage{csquotes}
 \usepackage{xurl}
 \usepackage[backend=biber,style=authoryear-comp,maxbibnames=4,maxcitenames=2,uniquename=false,urldate=long]{biblatex}
@@ -28,8 +31,9 @@
   pdfsubject={Marktvolumen, Datenlage und Rollen des Landes nach dem Wärmeplan 2026},pdflang={de-DE}}
 % \autoref macht "Abb. 4" als Ganzes klickbar, nicht nur die Zahl
 \addto\extrasngerman{%
-  \def\figureautorefname{Abb.}\def\tableautorefname{Tab.}%
-  \def\sectionautorefname{Abschnitt}}
+    \def\figureautorefname{Abb.}\def\tableautorefname{Tab.}%
+    \def\subfigureautorefname{Abb.}
+    \def\sectionautorefname{Abschnitt}}
 \setlist{itemsep=2pt,topsep=4pt}
 
 % Beschriftungen mit KOMA-Mitteln: "Abb. 1" fett, Text klein, kein Doppelpunkt
@@ -84,7 +88,28 @@
 \begin{abstract}
     % quotation-Umgebung: Einzug aus, Absatzabstand wie im übrigen Text
     \setlength{\parindent}{0pt}\setlength{\parskip}{0.5\baselineskip}
-    \noindent\textbf{Ablösung des Gasmarkts.}\hspace{1em}
+    % \noindent\textbf{Ansatz.}\hspace{1em}
+    % Die Debatte über Fernwärmeregulierung wird bislang auf Bundesebene und abstrakt geführt. %% BELEG?!
+    Diese Kurzanalyse verbindet zwei offene Datenquellen, die bislang getrennt betrachtet werden: die Verbrauchsdaten des Umweltatlas auf Blockebene \cite{geoportal2026fw} \cite{geoportal2026gas} und die Wärmeversorgungsgebiete des Wärmeplans \cite{geoportal2026wp}. 
+    Gemeinsam geben sie Aufschluss über Marktvolumen und Marktstruktur der künftigen Fernwärmeversorgung. Sie beziffert das umgelenkte Volumen und macht die Datenlücken messbar. 
+    Anhand des (neuen) Zukunftsorts \enquote{Health Innovation Quarter} (HIQ) wird verdeutlicht, wie unterschiedlich die Verhandlungspositionen der Abnehmer sind. 
+    Daraus folgen Empfehlungen zu Datentransparenz, Preistransparenz für Großkunden und zur Trennung der Rollen des Landes. 
+\end{abstract}
+    
+
+
+
+\tableofcontents
+
+% =====================================================================
+\section{Ausgangslage}
+% =====================================================================
+
+    Berlin hat im Juni 2026 seinen Wärmeplan beschlossen \parencite{senat2026waermeplan}. 
+    Er ordnet jedem Teilblock der Stadt ein Wärmeversorgungsgebiet zu und gibt für Wärmenetzgebiete an, bis zu welchem Stützjahr (2030 bis 2045) sie erschlossen werden sollen und welcher Betreiber vorgesehen ist. 
+    Seit 2024 gehört der größte Betreiber, die BEW Berliner Energie und Wärme, wieder dem Land \parencite{senat2024bew}.
+    
+    \noindent\textbf{Hintergrund: Ablösung des Gasmarkts.}\hspace{1em}
     Berlin will bis 2045 klimaneutral sein; damit endet die Gasheizung im Gebäudebestand. 
     Der Wärmeplan ordnet Gebiete, in denen heute \zkonum{\gasnetz}~TWh Gas verbraucht werden -- \zkoshare{\gasnetz}{\gasblock} des auf Blockebene sichtbaren Verbrauchs --, bis 2045 Wärmenetzen zu; 
     weitere \zkonum{\gaspruef}~TWh liegen in Prüfgebieten, die überwiegend als wärmenetzgeeignet
@@ -97,42 +122,23 @@
     Es hat damit auf Anbieter- wie Abnehmerseite erhebliche Marktmacht; Preise im Rahmenvertrag sind
     Verrechnungen zwischen öffentlichen Haushalten.
     
-    \textbf{Datenlage und Transparenz.}\hspace{1em}Auf Blockebene fehlen \zkoshare{\gasbez-\gasblock}{\gasbez} des Gas- und \zkoshare{\fwbez-\fwblock}{\fwbez} des Fernwärmeverbrauchs. 
+    \textbf{Datenlage und Transparenz.}\hspace{1em}Auf Blockebene fehlen im Umweltatlas \zkoshare{\gasbez-\gasblock}{\gasbez} des Gas- und \zkoshare{\fwbez-\fwblock}{\fwbez} des Fernwärmeverbrauchs. 
     Die Zahl der aus Datenschutzgründen gesperrten Gasblöcke stieg von \zkonum[0]{\gesperrtalt} (2021) auf \zkonum[0]{\gesperrt} (2023);
     \zkoshare{\gesperrtnetz}{\gesperrt} davon liegen in künftigen Wärmenetzgebieten -- dort,
     wo Großabnehmer mit dem Monopolanbieter verhandeln. 
     Fernwärmedaten weisen nicht aus, ob ein Wert gesperrt ist, die Netzkarten sind nicht öffentlich, und für Kostendaten gibt es außerhalb der Missbrauchsaufsicht keine Rechtsgrundlage.
     
-    \textbf{Ansatz.}\hspace{1em}
-    Die Debatte über Fernwärmeregulierung wird bislang auf Bundesebene und abstrakt geführt. 
-    Diese Kurzanalyse verschneidet offene Verbrauchsdaten mit den Gebieten des Wärmeplans, beziffert das umgelenkte Volumen, macht die Datenlücken messbar und zeigt am Health Innovation Quartier, wie unterschiedlich die Verhandlungspositionen der Abnehmer sind. 
-    Daraus folgen Empfehlungen zu Datentransparenz, Preistransparenz für Großkunden und zur Trennung der Rollen des Landes. 
-\end{abstract}
 
-\pagebreak
-
-\tableofcontents
-
-% =====================================================================
-\section{Ausgangslage}
-% =====================================================================
-
-Berlin hat im Juni 2026 seinen Wärmeplan beschlossen \parencite{senat2026waermeplan}. 
-Er ordnet jedem Teilblock der Stadt ein Wärmeversorgungsgebiet zu und gibt für Wärmenetzgebiete an, bis zu welchem Stützjahr (2030 bis 2045) sie erschlossen werden sollen und welcher Betreiber vorgesehen ist. 
-Seit 2024 gehört der größte Betreiber, die BEW Berliner Energie und Wärme, wieder dem Land \parencite{senat2024bew}.
-
-Fernwärmenetze sind natürliche Monopole. 
-Anders als bei Strom und Gas gibt es weder eine Trennung von Netz und Vertrieb noch eine Regulierung der Netzentgelte. 
-Die Bundesregierung hat im August 2026 Eckpunkte für ein Wärmenetzpaket beschlossen, mit einer verpflichtenden Preistransparenzplattform und einer nachträglichen (ex-post) Preisaufsicht durch eine Bundesbehörde \parencite{bmwe2026waermenetzpaket}. 
-Bis dahin bleibt es bei der allgemeinen kartellrechtlichen Missbrauchsaufsicht.
-
-Diese Kurzanalyse verbindet zwei offene Datenquellen, die bislang getrennt betrachtet werden: 
-die Verbrauchsdaten des Energieatlas auf Blockebene und 
-die Wärmeversorgungsgebiete des Wärmeplans. 
-Gemeinsam geben sie Aufschluss über Marktvolumen und Marktstruktur der künftigen Fernwärmeversorgung.
 
 % =====================================================================
 \section{Stand der Diskussion}\label{sec:stand}
+
+    Fernwärmenetze sind natürliche Monopole. 
+    Anders als bei Strom und Gas gibt es weder eine Trennung von Netz und Vertrieb noch eine Regulierung der Netzentgelte. 
+    Die Bundesregierung hat im August 2026 Eckpunkte für ein Wärmenetzpaket beschlossen, mit einer verpflichtenden Preistransparenzplattform und einer nachträglichen (ex-post) Preisaufsicht durch eine Bundesbehörde \parencite{bmwe2026waermenetzpaket}. 
+    Bis dahin bleibt es bei der allgemeinen kartellrechtlichen Missbrauchsaufsicht.
+
+    
 
 \paragraph{Regulierung.} Die Monopolkommission stuft den Fernwärmemarkt als natürliches Monopol ein. 
 Sie empfiehlt kurzfristig eine Transparenzplattform, überarbeitete Preisgleitklauseln und eine vereinfachte Price-Cap-Regulierung, langfristig den Netzzugang für Dritte \parencite{monopolkommission2024}; 
@@ -187,34 +193,27 @@ Nur \kz{gas-dezentral}~TWh liegen in Gebieten, die der Plan für dezentrale Lös
 
 \begin{figure}[ht]
     \centering
-    % \begin{minipage}[b]{0.47\linewidth}\centering
-    % gestapelte Balken: Segmente in den Kartenfarben, Summe am Balkenende
     \DTLmaxforcolumn{stuetz}{gas-twh}{\stmax}%
-    \begin{tikzpicture}[font=\sffamily\footnotesize]
-    \DTLforeach*{stuetz}{\stj=jahr,\sta=bestand,\stb=erw30,\stc=erw35,\std=erw40,\ste=erw45,\stt=gas-twh}{%
-      \edef\sty{\fpeval{-0.6*\DTLcurrentindex}}%
-      \gdef\stx{0}%
-      \foreach \v/\f in {\sta/wp-bestand,\stb/wp-erw30,\stc/wp-erw35,\std/wp-erw40,\ste/wp-erw45}{%
-        \zkotest{\v > 0}{%
-          \edef\stw{\fpeval{3.4*\v/\stmax}}%
-          \filldraw[fill=\f,draw=black!35,line width=0.3pt] (\stx cm,\sty) rectangle ++(\stw cm,0.42);
-          \xdef\stx{\fpeval{\stx+\stw}}}{}}
-      \node[left] at (0,\sty+0.21) {\stj};
-      \node[right] at (\stx cm,\sty+0.21) {\zkonum{\stt}\,TWh};
-    }
-    \end{tikzpicture}
-    \caption{Gas 2023 in Wärmenetzgebieten, kumuliert nach Stützjahr.}\label{fig:stuetz}
+    \subcaptionbox{kumuliert nach Stützjahr\label{fig:stuetz}}{%
+        % gestapelte Balken: Segmente in den Kartenfarben, Summe am Balkenende
+        \begin{tikzpicture}[font=\sffamily\footnotesize]
+        \DTLforeach*{stuetz}{\stj=jahr,\sta=bestand,\stb=erw30,\stc=erw35,\std=erw40,\ste=erw45,\stt=gas-twh}{%
+          \edef\sty{\fpeval{-0.6*\DTLcurrentindex}}%
+          \gdef\stx{0}%
+          \foreach \v/\f in {\sta/wp-bestand,\stb/wp-erw30,\stc/wp-erw35,\std/wp-erw40,\ste/wp-erw45}{%
+            \zkotest{\v > 0}{%
+              \edef\stw{\fpeval{3.4*\v/\stmax}}%
+              \filldraw[fill=\f,draw=black!35,line width=0.3pt] (\stx cm,\sty) rectangle ++(\stw cm,0.42);
+              \xdef\stx{\fpeval{\stx+\stw}}}{}}
+          \node[left] at (0,\sty+0.21) {\stj};
+          \node[right] at (\stx cm,\sty+0.21) {\zkonum{\stt}\,TWh};
+        }
+        \end{tikzpicture}}%
+    \hspace{3em}%
+    \subcaptionbox{nach vorgesehenem Betreiber (2045)\label{fig:betreiber}}{%
+        \zkobars[unit=TWh,width=2.6,color=farbe]{betreiber}{gas-twh}}
+    \caption{Gas 2023 in Wärmenetzgebieten.}\label{fig:netzgas}
 \end{figure}
-
-\begin{figure}
-    \centering
-    % \end{minipage}\hfill
-    % \begin{minipage}[b]{0.47\linewidth}\centering
-    \zkobars[unit=TWh,width=2.6,color=farbe]{betreiber}{gas-twh}
-    \caption{Gas 2023 in Wärmenetzgebieten 2045 nach vorgesehenem Betreiber.}\label{fig:betreiber}
-    % \end{minipage}
-\end{figure}
-
 Der Großteil dieses Volumens fällt einem einzigen Unternehmen zu (\autoref{fig:betreiber}): In Gebieten, für die allein die BEW als Betreiber vorgesehen ist, wurden 2023 \zkonum{\gasbew}~TWh Gas verbraucht. 
 Zum Vergleich: Der gesamte Fernwärmeverbrauch Berlins lag 2023 bei \zkonum{\fwbez}~TWh. 
 Der Wärmeplan beschreibt damit, grob gerechnet, ein Absatzpotenzial in der Größenordnung von \zkoshare{\gasbew}{\fwbez} des heutigen Marktes -- vor Sanierung und Effizienzgewinnen, die der Plan mit einer Sanierungsrate von 1{,}7\,\% pro Jahr ansetzt \parencite{senmvku2026kernaussagen}. 
@@ -249,7 +248,7 @@ Der Energieatlas veröffentlicht Verbräuche je Block, sperrt sie aber, wenn ein
 Ein großer Abnehmer in einem Fernwärmegebiet steht einem Monopolanbieter gegenüber und kann selbst kaum ausweichen -- ein \emph{bilaterales Monopol}, in dem der Preis Verhandlungssache ist. Diese Verhandlungen sind für Außenstehende unsichtbar.
 
 Wie stark ein Abnehmer verhandeln kann, hängt von seiner Ausweichmöglichkeit ab. 
-Daraus ergibt sich eine Rangfolge (\autoref{tab:typen}), die sich in einem einzigen Quartier, dem Health Innovation Quartier (\autoref{sec:hiq}), vollständig wiederfindet.
+Daraus ergibt sich eine Rangfolge (\autoref{tab:typen}), die sich in einem einzigen Quartier, dem Health Innovation Quarter (\autoref{sec:hiq}), vollständig wiederfindet.
 
 \begin{table}[ht]
     \small\centering
@@ -325,7 +324,7 @@ Die Empfehlungen tragen dem Rechnung:
 Sie betreffen die Offenlegung von Mengen, Preisen und Zuständigkeiten, nicht deren Höhe; wo Datenschutz oder Infrastrukturschutz entgegenstehen, genügen aggregierte Angaben je Wärmeversorgungsgebiet.
 
 % =====================================================================
-\section{Fallstudie: Health Innovation Quartier}\label{sec:hiq}
+\section{Fallstudie: Health Innovation Quarter}\label{sec:hiq}
 % =====================================================================
 
 \kzhget{hiq-innerhalb-gas}{\hgas} \kzhget{hiq-innerhalb-fw}{\hfw}
@@ -336,14 +335,15 @@ Sie betreffen die Offenlegung von Mengen, Preisen und Zuständigkeiten, nicht de
 \kzhget{hiq-gas-netz}{\hnetz}
 \kzhget{hiq-gas-top1}{\hone} \kzhget{hiq-top1-ha}{\honeha} \kzhget{hiq-top2-ha}{\htopha}
 
-Das Health Innovation Quartier (HIQ) ist der neue Berliner Zukunftsort. 
+Berlin weist aktuell elf Orte als \enquote{Zukunftsorte} aus.
+Das sind Standorte, an denen Netzwerke zwischen Wissenschaft und Wirtschaft bestehen oder ausgebaut werden sollen, und die das Land als Baustein seiner Wirtschafts- und Innovationspolitik fördert \parencite{zko}. 2026 neu ausgewiesen wurde ein Areal als \enquote{Health Innovation Quarter} (HIQ).
 Es besteht aus zwei Teilflächen mit zusammen \kzh{hiq-ha}~ha.\footnote{Umriss nachgezeichnet nach \textcite{blc2026wirtschaftsatlas}; er ist nicht als Geodatensatz veröffentlicht.} 
 Vollständig im Umriss liegen \zkonum[0]{\hbl} statistische Blöcke.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.95\linewidth]{abb/karte_hiq.pdf}
-    \caption{Health Innovation Quartier (schwarzer Umriss):
+    \caption{Health Innovation Quarter (schwarzer Umriss):
     Wärmeversorgungsgebiete 2045 (Farben der offiziellen Wärmeplan-Legende), gesperrte Gasblöcke (schraffiert) und die zwei verbrauchsstärksten Blöcke; Umgebung aufgehellt. Quelle: Wärmeplan Berlin, Energieatlas, eigener Umriss.}\label{fig:hiq}
 \end{figure}
 
@@ -395,9 +395,12 @@ bei der Fernwärme kommen Randblöcke hinzu.}\label{tab:regel}
 Gasverbrauch 2023 je Block \parencite{geoportal2026gas} wurde flächenanteilig auf die Teilblöcke des Wärmeplans 2026 \parencite{geoportal2026wp} verteilt; Fernwärme- und Bezirksdaten aus \textcite{geoportal2026fw}. 
 Gasverbrauch ist nicht gleich Wärmebedarf (Kochgas, Prozesswärme, Wirkungsgrade); die Werte sind nicht witterungsbereinigt. 
 Die Differenz zwischen Block- und Bezirkssummen kann neben gesperrten Werten auch nicht zuordenbare Verbräuche enthalten. 
-\hl{Alle Zahlen in diesem Text entstammen den öffentlichen Daten aus dem Energieatlas Berlin, automatisiert abgefragt, und werden beim Kompilieren aus den Daten berechnet.} Die zugrunde liegende Pipeline ist dokumentiert unter
-\url{https://github.com/penta-jan/zko-pipeline}; Code und Daten dieser Analyse:
-\url{https://github.com/penta-jan/Fernwaerme-Berlin-Kurzanalyse}.\par}
+\hl{Alle Verbrauchs-, Flächen- und Gebietszahlen in diesem Text werden beim Kompilieren aus den Daten berechnet.}
+\hl{Ein Skript ruft dazu die offenen Geodaten des Energieatlas und des Wärmeplans über die WFS-Dienste des Geoportals Berlin ab, verschneidet sie und schreibt die Ergebnisse in Tabellen, aus denen die Grafiken und Zahlen im Text entstehen.}
+\hl{Angaben aus anderen Quellen sind als solche zitiert.}
+Die zugrunde liegende Pipeline ist dokumentiert unter \url{https://github.com/penta-jan/zko-pipeline};
+Code und Daten dieser Analyse: \url{https://github.com/penta-jan/Fernwaerme-Berlin-Kurzanalyse}.\par
+}
 
 \printbibliography[heading=bibintoc,title={Quellen}]
 
