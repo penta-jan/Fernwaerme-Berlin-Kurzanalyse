@@ -1,0 +1,11 @@
+id,name,adresse,traeger,block,im-umriss,gas-gwh,gas-status,fw-gwh,wvg-2045,wvg-kurz
+virchow,Charité Campus Virchow-Klinikum,Augustenburger Platz 1,Land,010186,ja,110.668,,21.802,Wärmenetzgebiet - Bestand,Bestand
+bnd,Bundesnachrichtendienst,Chausseestraße 96,Bund,098003,ja,52.089,,3.374,Wärmenetzgebiet - Erschließungsperspektive bis 2030,bis 2030
+mitte,"Charité Campus Mitte, DRFZ",Charitéplatz 1,Land,098611,ja,,gesperrt,28.462,Wärmenetzgebiet - Bestand,Bestand
+mdc,"MDC-BIMSB, HU Campus Nord",Hannoversche Straße 28,Bund/Land,098610,ja,3.891,,30.49,Wärmenetzgebiet - Bestand,Bestand
+bwk,Bundeswehrkrankenhaus,Scharnhorststraße 13,Bund,098002,ja,3.373,,13.266,Wärmenetzgebiet - Bestand,Bestand
+naturkunde,"Museum für Naturkunde, BMV, HU",Invalidenstraße 43,Bund/Land,098008,ja,4.856,,11.895,Wärmenetzgebiet - Bestand,Bestand
+bht,Berliner Hochschule für Technik,Luxemburger Straße 10,Land,009636,ja,0.189,,9.326,Wärmenetzgebiet - Bestand,Bestand
+bmwe,BMWE,Scharnhorststraße 34,Bund,098605,ja,1.043,,5.91,Wärmenetzgebiet - Bestand,Bestand
+futurium,"Futurium, BMFTR",Alexanderufer 2; Kapelle-Ufer 1,Bund,098600,ja,,gesperrt,,Wärmenetzgebiet - Erschließungsperspektive bis 2030,bis 2030
+bayer,Bayer (Hauptadresse),Müllerstraße 178,privat,008220,ja,,keine Angabe,,Wärmenetzgebiet - Erschließungsperspektive zwischen 2025 und 2030,bis 2030
