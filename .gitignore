@@ -1,1 +1,18 @@
+# Rohdaten: werden von daten/abruf.py geladen (ca. 70 MB)
+daten/roh/
 
+# LaTeX-Hilfsdateien
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Python
+__pycache__/
