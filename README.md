@@ -1,6 +1,8 @@
-# Kurzanalyse: Fernwärme in der Berliner Wärmewende (Entwurf)
+# Marktrollen und Transparenz beim Fernwärmeausbau in Berlin (Entwurf)
 
-Verbindet offene Verbrauchsdaten des Energieatlas Berlin (Gas, Fernwärme je Block)
+Kurzanalyse: Eine Analyse offener Verbrauchs- und Planungsdaten.
+
+Verbindet offene Verbrauchsdaten des Umweltatlas Berlin (Gas, Fernwärme je Block)
 mit den Wärmeversorgungsgebieten des Berliner Wärmeplans 2026. Alle Zahlen im Text
 werden beim Kompilieren aus den Ergebnisdateien berechnet (Pipeline: `zkopipeline.sty`).
 
