@@ -1,12 +1,13 @@
-\documentclass[11pt,a4paper,parskip=half,abstract=true,ngerman]{scrartcl}
+\documentclass[11pt,DIV=13,a4paper,parskip=half,abstract=true,ngerman]{scrartcl}
 \usepackage[ngerman]{babel}
-\usepackage[margin=2.3cm]{geometry}
+% \usepackage[margin=2.3cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[scaled=0.95]{helvet}
 \usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{graphicx}
+\usepackage{soul}
 \usepackage{csquotes}
 \usepackage{xurl}
 \usepackage[backend=biber,style=authoryear-comp,maxbibnames=4,maxcitenames=2,uniquename=false,urldate=long]{biblatex}
@@ -81,44 +82,34 @@
 \maketitle
 
 \begin{abstract}
-% quotation-Umgebung: Einzug aus, Absatzabstand wie im übrigen Text
-\setlength{\parindent}{0pt}\setlength{\parskip}{0.5\baselineskip}
-\noindent\textbf{Ablösung des Gasmarkts.}\hspace{1em}Berlin will bis 2045 klimaneutral sein; damit endet
-die Gasheizung im Gebäudebestand. Der Wärmeplan ordnet Gebiete, in denen heute
-\zkonum{\gasnetz}~TWh Gas verbraucht werden -- \zkoshare{\gasnetz}{\gasblock} des auf
-Blockebene sichtbaren Verbrauchs --, bis 2045 Wärmenetzen zu; weitere
-\zkonum{\gaspruef}~TWh liegen in Prüfgebieten, die überwiegend als wärmenetzgeeignet
-gelten. Für die Kunden dort wird ein Gasvertrag auf einem Wettbewerbsmarkt durch einen
-Fernwärmevertrag mit einem Monopolanbieter ersetzt. Das ist ein erheblicher
-Markteingriff mit großem Volumen: Allein in Gebieten, für die die landeseigene BEW als
-einziger Betreiber vorgesehen ist, wurden 2023 \zkonum{\gasbew}~TWh Gas verbraucht --
-\zkoshare{\gasbew}{\fwbez} des heutigen Fernwärmeverbrauchs Berlins.
-
-\textbf{Doppelrolle des Landes.}\hspace{1em}Das Land Berlin ist Eigentümer des größten
-Fernwärmeversorgers und gibt ihm jährlich finanzpolitische Ziele vor, legt die Wärmeversorgungsgebiete fest, kauft über einen zentralen
-Rahmenvertrag die Fernwärme für Verwaltung, Hochschulen und Kliniken (rund 850~GWh im
-Jahr) und ist Sitz der zuständigen Kartell- und Fernwärmeaufsicht; die Senatorin,
-deren Verwaltung diese Aufsicht führt, sitzt zugleich dem Aufsichtsrat der BEW vor
-(Stand 2025). Es hat damit auf
-Anbieter- wie Abnehmerseite erhebliche Marktmacht; Preise im Rahmenvertrag sind
-Verrechnungen zwischen öffentlichen Haushalten.
-
-\textbf{Datenlage und Transparenz.}\hspace{1em}Auf Blockebene fehlen
-\zkoshare{\gasbez-\gasblock}{\gasbez} des Gas- und \zkoshare{\fwbez-\fwblock}{\fwbez}
-des Fernwärmeverbrauchs. Die Zahl der aus Datenschutzgründen gesperrten Gasblöcke stieg
-von \zkonum[0]{\gesperrtalt} (2021) auf \zkonum[0]{\gesperrt} (2023);
-\zkoshare{\gesperrtnetz}{\gesperrt} davon liegen in künftigen Wärmenetzgebieten -- dort,
-wo Großabnehmer mit dem Monopolanbieter verhandeln. Fernwärmedaten weisen nicht aus, ob
-ein Wert gesperrt ist, die Netzkarten sind nicht öffentlich, und für Kostendaten gibt es
-außerhalb der Missbrauchsaufsicht keine Rechtsgrundlage.
-
-\textbf{Ansatz.}\hspace{1em}Die Debatte über Fernwärmeregulierung wird bislang auf Bundesebene
-und abstrakt geführt. Diese Kurzanalyse verschneidet offene Verbrauchsdaten mit den
-Gebieten des Wärmeplans, beziffert das umgelenkte Volumen, macht die Datenlücken
-messbar und zeigt am Health Innovation Quartier, wie unterschiedlich die
-Verhandlungspositionen der Abnehmer sind. Daraus folgen Empfehlungen zu
-Datentransparenz, Preistransparenz für Großkunden und zur Trennung der Rollen des Landes.
+    % quotation-Umgebung: Einzug aus, Absatzabstand wie im übrigen Text
+    \setlength{\parindent}{0pt}\setlength{\parskip}{0.5\baselineskip}
+    \noindent\textbf{Ablösung des Gasmarkts.}\hspace{1em}
+    Berlin will bis 2045 klimaneutral sein; damit endet die Gasheizung im Gebäudebestand. 
+    Der Wärmeplan ordnet Gebiete, in denen heute \zkonum{\gasnetz}~TWh Gas verbraucht werden -- \zkoshare{\gasnetz}{\gasblock} des auf Blockebene sichtbaren Verbrauchs --, bis 2045 Wärmenetzen zu; 
+    weitere \zkonum{\gaspruef}~TWh liegen in Prüfgebieten, die überwiegend als wärmenetzgeeignet
+    gelten. 
+    Für die Kunden dort wird ein Gasvertrag auf einem Wettbewerbsmarkt durch einen Fernwärmevertrag mit einem Monopolanbieter ersetzt. 
+    Das ist ein erheblicher Markteingriff mit großem Volumen: Allein in Gebieten, für die die landeseigene BEW als einziger Betreiber vorgesehen ist, wurden 2023 \zkonum{\gasbew}~TWh Gas verbraucht -- \zkoshare{\gasbew}{\fwbez} des heutigen Fernwärmeverbrauchs Berlins.
+    
+    \textbf{Doppelrolle des Landes.}\hspace{1em}
+    Das Land Berlin ist Eigentümer des größten Fernwärmeversorgers und gibt ihm jährlich finanzpolitische Ziele vor, legt die Wärmeversorgungsgebiete fest, kauft über einen zentralen Rahmenvertrag die Fernwärme für Verwaltung, Hochschulen und Kliniken (rund 850~GWh im Jahr) und ist Sitz der zuständigen Kartell- und Fernwärmeaufsicht; die Senatorin, deren Verwaltung diese Aufsicht führt, sitzt zugleich dem Aufsichtsrat der BEW vor (Stand 2025). 
+    Es hat damit auf Anbieter- wie Abnehmerseite erhebliche Marktmacht; Preise im Rahmenvertrag sind
+    Verrechnungen zwischen öffentlichen Haushalten.
+    
+    \textbf{Datenlage und Transparenz.}\hspace{1em}Auf Blockebene fehlen \zkoshare{\gasbez-\gasblock}{\gasbez} des Gas- und \zkoshare{\fwbez-\fwblock}{\fwbez} des Fernwärmeverbrauchs. 
+    Die Zahl der aus Datenschutzgründen gesperrten Gasblöcke stieg von \zkonum[0]{\gesperrtalt} (2021) auf \zkonum[0]{\gesperrt} (2023);
+    \zkoshare{\gesperrtnetz}{\gesperrt} davon liegen in künftigen Wärmenetzgebieten -- dort,
+    wo Großabnehmer mit dem Monopolanbieter verhandeln. 
+    Fernwärmedaten weisen nicht aus, ob ein Wert gesperrt ist, die Netzkarten sind nicht öffentlich, und für Kostendaten gibt es außerhalb der Missbrauchsaufsicht keine Rechtsgrundlage.
+    
+    \textbf{Ansatz.}\hspace{1em}
+    Die Debatte über Fernwärmeregulierung wird bislang auf Bundesebene und abstrakt geführt. 
+    Diese Kurzanalyse verschneidet offene Verbrauchsdaten mit den Gebieten des Wärmeplans, beziffert das umgelenkte Volumen, macht die Datenlücken messbar und zeigt am Health Innovation Quartier, wie unterschiedlich die Verhandlungspositionen der Abnehmer sind. 
+    Daraus folgen Empfehlungen zu Datentransparenz, Preistransparenz für Großkunden und zur Trennung der Rollen des Landes. 
 \end{abstract}
+
+\pagebreak
 
 \tableofcontents
 
@@ -126,77 +117,57 @@ Datentransparenz, Preistransparenz für Großkunden und zur Trennung der Rollen 
 \section{Ausgangslage}
 % =====================================================================
 
-Berlin hat im Juni 2026 seinen Wärmeplan beschlossen \parencite{senat2026waermeplan}. Er
-ordnet jedem Teilblock der Stadt ein Wärmeversorgungsgebiet zu und gibt für
-Wärmenetzgebiete an, bis zu welchem Stützjahr (2030 bis 2045) sie erschlossen werden
-sollen und welcher Betreiber vorgesehen ist. Seit 2024 gehört der größte Betreiber, die
-BEW Berliner Energie und Wärme, wieder dem Land \parencite{senat2024bew}.
+Berlin hat im Juni 2026 seinen Wärmeplan beschlossen \parencite{senat2026waermeplan}. 
+Er ordnet jedem Teilblock der Stadt ein Wärmeversorgungsgebiet zu und gibt für Wärmenetzgebiete an, bis zu welchem Stützjahr (2030 bis 2045) sie erschlossen werden sollen und welcher Betreiber vorgesehen ist. 
+Seit 2024 gehört der größte Betreiber, die BEW Berliner Energie und Wärme, wieder dem Land \parencite{senat2024bew}.
 
-Fernwärmenetze sind natürliche Monopole. Anders als bei Strom und Gas gibt es weder
-eine Trennung von Netz und Vertrieb noch eine Regulierung der Netzentgelte. Die
-Bundesregierung hat im August 2026 Eckpunkte für ein Wärmenetzpaket beschlossen, mit
-einer verpflichtenden Preistransparenzplattform und einer nachträglichen (ex-post)
-Preisaufsicht durch eine Bundesbehörde \parencite{bmwe2026waermenetzpaket}. Bis dahin bleibt es bei der allgemeinen
-kartellrechtlichen Missbrauchsaufsicht.
+Fernwärmenetze sind natürliche Monopole. 
+Anders als bei Strom und Gas gibt es weder eine Trennung von Netz und Vertrieb noch eine Regulierung der Netzentgelte. 
+Die Bundesregierung hat im August 2026 Eckpunkte für ein Wärmenetzpaket beschlossen, mit einer verpflichtenden Preistransparenzplattform und einer nachträglichen (ex-post) Preisaufsicht durch eine Bundesbehörde \parencite{bmwe2026waermenetzpaket}. 
+Bis dahin bleibt es bei der allgemeinen kartellrechtlichen Missbrauchsaufsicht.
 
-Diese Kurzanalyse verbindet zwei offene Datenquellen, die bislang getrennt betrachtet
-werden: die Verbrauchsdaten des Energieatlas auf Blockebene und die
-Wärmeversorgungsgebiete des Wärmeplans. Gemeinsam geben sie Aufschluss über Marktvolumen und Marktstruktur der künftigen
-Fernwärmeversorgung.
+Diese Kurzanalyse verbindet zwei offene Datenquellen, die bislang getrennt betrachtet werden: 
+die Verbrauchsdaten des Energieatlas auf Blockebene und 
+die Wärmeversorgungsgebiete des Wärmeplans. 
+Gemeinsam geben sie Aufschluss über Marktvolumen und Marktstruktur der künftigen Fernwärmeversorgung.
 
 % =====================================================================
 \section{Stand der Diskussion}\label{sec:stand}
 
-\paragraph{Regulierung.} Die Monopolkommission stuft den Fernwärmemarkt als natürliches
-Monopol ein. Sie empfiehlt kurzfristig eine Transparenzplattform, überarbeitete
-Preisgleitklauseln und eine vereinfachte Price-Cap-Regulierung, langfristig den
-Netzzugang für Dritte \parencite{monopolkommission2024}; im Sektorgutachten 2025
-bekräftigt sie die Forderung nach einer gesetzlichen Zugangsregulierung
-\parencite{monopolkommission2025}. Das Bundeskartellamt führt seit 2023 Verfahren wegen
-überhöhter Preisanpassungen und hat in vier von neun untersuchten Netzen den Verdacht
-rechtswidriger Preisanpassungsklauseln erhärtet \parencite{bkarta2023,bkarta2025}. Der
-Verbraucherzentrale Bundesverband fordert auf Grundlage eines Gutachtens von FÖS und
-Jürgen Kühling eine bundeseinheitliche Preisaufsicht \parencite{vzbv2024}; die dena
-diskutiert die Preisregulierung vor allem von der Finanzierungsseite
-\parencite{dena2025}. Die Eckpunkte des Wärmenetzpakets greifen Transparenzplattform und
-nachträgliche Preisaufsicht auf, nicht aber Preisobergrenzen oder Netzzugang
-\parencite{bmwe2026waermenetzpaket}.
+\paragraph{Regulierung.} Die Monopolkommission stuft den Fernwärmemarkt als natürliches Monopol ein. 
+Sie empfiehlt kurzfristig eine Transparenzplattform, überarbeitete Preisgleitklauseln und eine vereinfachte Price-Cap-Regulierung, langfristig den Netzzugang für Dritte \parencite{monopolkommission2024}; 
+im Sektorgutachten 2025 bekräftigt sie die Forderung nach einer gesetzlichen Zugangsregulierung
+\parencite{monopolkommission2025}. 
+Das Bundeskartellamt führt seit 2023 Verfahren wegen überhöhter Preisanpassungen und hat in vier von neun untersuchten Netzen den Verdacht rechtswidriger Preisanpassungsklauseln erhärtet \parencite{bkarta2023,bkarta2025}. 
+Der Verbraucherzentrale Bundesverband fordert auf Grundlage eines Gutachtens von FÖS und Jürgen Kühling eine bundeseinheitliche Preisaufsicht \parencite{vzbv2024}.
+Die dena diskutiert die Preisregulierung vor allem von der Finanzierungsseite \parencite{dena2025}. 
+Die Eckpunkte des Wärmenetzpakets greifen Transparenzplattform und nachträgliche Preisaufsicht auf, nicht aber Preisobergrenzen oder Netzzugang \parencite{bmwe2026waermenetzpaket}.
 
-\paragraph{Finanzierung.} Die Branchenverbände halten dagegen, steigende Preise seien
-Folge des hohen Investitionsbedarfs, nicht fehlenden Wettbewerbs; eine Preisobergrenze
-würde Investitionen bremsen \parencite{bdew2024monopolkommission,zfk2025monopolkommission}.
-Der Bedarf ist tatsächlich groß: für den Aus- und Umbau der städtischen Fernwärme
-rund 43,5~Mrd.\,Euro bis 2030 und 74,4~Mrd.\,Euro bis 2045 \parencite{prognos2024}; der
-Umbau bestehender Großstadtnetze ist unter heutigen Bedingungen kaum refinanzierbar
-\parencite{ariadne2023}. Für Strom-, Gas- und Wärmenetze zusammen beziffern Inan,
-Gassen und Steitz den Investitionsbedarf der Versorger bis 2045 auf rund 627~Mrd.\,Euro,
-davon 63~Mrd.\,Euro zusätzliches Eigenkapital \parencite{inan2025}; Bund und Länder
-haben dazu im Oktober 2026 Eckpunkte vorgelegt \parencite{bmf2026netze}. Wer die
-Refinanzierung über Preise trägt, ist damit die Kehrseite derselben Frage; zu den
+\paragraph{Finanzierung.} 
+Die Branchenverbände halten dagegen, steigende Preise seien Folge des hohen Investitionsbedarfs, nicht fehlenden Wettbewerbs; eine Preisobergrenze würde Investitionen bremsen \parencite{bdew2024monopolkommission,zfk2025monopolkommission}. 
+Der Bedarf ist tatsächlich groß: für den Aus- und Umbau der städtischen Fernwärme rund 43,5~Mrd.\,Euro bis 2030 und 74,4~Mrd.\,Euro bis 2045 \parencite{prognos2024}; der Umbau bestehender Großstadtnetze ist unter heutigen Bedingungen kaum refinanzierbar \parencite{ariadne2023}. 
+Für Strom-, Gas- und Wärmenetze zusammen beziffern Inan, Gassen und Steitz den Investitionsbedarf der Versorger bis 2045 auf rund 627~Mrd.\,Euro, davon 63~Mrd.\,Euro zusätzliches Eigenkapital \parencite{inan2025}. 
+Bund und Länder haben dazu im Oktober 2026 Eckpunkte vorgelegt \parencite{bmf2026netze}. 
+Wer die Refinanzierung über Preise trägt, ist damit die Kehrseite derselben Frage; zu den
 Verteilungswirkungen der Wärmewende auf Gebäudeseite vgl.\ \textcite{henze2026}.
 
-\paragraph{Berlin.} Für Berlin zeigt die Modellstudie des DIW, dass die
-Wärmeversorgung binnen 15 Jahren vom Erdgas auf erneuerbare Quellen umgestellt und
-Fernwärme-, Strom- und Gasnetze gemeinsam geplant werden müssen
-\parencite{herpich2023}. Der Wärmeplan legt diese Planung nun räumlich fest
-\parencite{senmvku2026kernaussagen}.
+\paragraph{Berlin.} 
+Für Berlin zeigt die Modellstudie des DIW, dass die Wärmeversorgung binnen 15 Jahren vom Erdgas auf erneuerbare Quellen umgestellt und Fernwärme-, Strom- und Gasnetze gemeinsam geplant werden müssen \parencite{herpich2023}. 
+Der Wärmeplan legt diese Planung nun räumlich fest \parencite{senmvku2026kernaussagen}.
 
-\paragraph{Internationale Erfahrungen.} Die Forschung zu Schweden kommt zu dem Ergebnis,
-dass Netzzugang für Dritte in lokalen Netzen nur begrenzten Wettbewerb schafft und bei
-ausgeprägtem natürlichem Monopol eine Preisregulierung im Voraus zu erwägen ist
-\parencite{soederholm2011,buerger2019}. Die Niederlande verbinden mit dem 2025
-verabschiedeten Wärmegesetz einen verpflichtenden öffentlichen Mehrheitsanteil an
-Wärmeunternehmen mit einer kostenbasierten Tarifregulierung
-\parencite{wcw2025,vng2025wcw}. Berlin hat das öffentliche Eigentum, aber keine
-unabhängige Regulierung.
+\paragraph{Internationale Erfahrungen.} 
+Die Forschung zu Schweden kommt zu dem Ergebnis, dass Netzzugang für Dritte in lokalen Netzen nur begrenzten Wettbewerb schafft und bei ausgeprägtem natürlichem Monopol eine Preisregulierung im Voraus zu erwägen ist \parencite{soederholm2011,buerger2019}. 
+Die Niederlande verbinden mit dem 2025 verabschiedeten Wärmegesetz einen verpflichtenden öffentlichen Mehrheitsanteil an Wärmeunternehmen mit einer kostenbasierten Tarifregulierung \parencite{wcw2025,vng2025wcw}. 
+Berlin hat das öffentliche Eigentum, aber keine unabhängige Regulierung.
 
-\paragraph{Beitrag dieser Analyse.} Die Debatte wird bislang auf Bundesebene und
-überwiegend abstrakt geführt. Drei Dinge fehlen: (1) eine räumliche Quantifizierung,
-welches Absatzvolumen ein Wärmeplan einzelnen Betreibern zuweist; (2) die Datenlage selbst
-als Befund -- gesperrte und nicht ausgewiesene Verbräuche dort, wo verhandelt wird; (3)
-die Doppelrolle eines Landes als Eigentümer, Planer, gebündelter Abnehmer und Sitz der
-Aufsicht. Diese Kurzanalyse liefert alle drei auf Grundlage offener Daten und
-reproduzierbar.
+\paragraph{Beitrag dieser Analyse.} 
+Die Debatte wird bislang auf Bundesebene und überwiegend abstrakt geführt. 
+Drei Dinge fehlen: 
+(1) eine räumliche Quantifizierung, welches Absatzvolumen ein Wärmeplan einzelnen Betreibern zuweist; 
+(2) die Datenlage selbst als Befund -- gesperrte und nicht ausgewiesene Verbräuche dort, wo verhandelt wird; 
+(3) die Doppelrolle eines Landes als Eigentümer, Planer, gebündelter Abnehmer und Sitz der
+Aufsicht. 
+Diese Kurzanalyse liefert alle drei auf Grundlage offener Daten und reproduzierbar.
 
 \section{Gasverbrauch in künftigen Wärmenetzgebieten}
 % =====================================================================
@@ -205,206 +176,153 @@ reproduzierbar.
 \centering
 \zkobars[unit=TWh,width=6.5,color=farbe]{gebiete}{gas-twh}
 \caption{Gasverbrauch 2023 (sichtbare Blockwerte) nach
-Wärmeversorgungsgebiet laut Wärmeplan 2045. Quelle: Energieatlas, Wärmeplan Berlin;
+Wärmeversorgungsgebiet laut Wärmeplan 2045.\\ Quelle: Energieatlas, Wärmeplan Berlin;
 eigene Verschneidung.}\label{fig:gebiete}
 \end{figure}
 
-Von den \zkonum{\gasblock}~TWh Gas, die auf Blockebene sichtbar sind, liegen
-\zkonum{\gasnetz}~TWh in Gebieten, die bis 2045 an ein Wärmenetz angeschlossen werden
-sollen (\autoref{fig:gebiete}). Der größte Block, \kz{gas-bestand}~TWh, liegt bereits heute in
-Fernwärmegebieten: Hier geht es um Nachverdichtung, also um Gebäude, die neben einem
-bestehenden Netz noch mit Gas heizen. Weitere \zkonum{\gaspruef}~TWh liegen in
-Prüfgebieten, deren Versorgungsart offen ist, die aber überwiegend als für Wärmenetze
-geeignet gelten. Nur \kz{gas-dezentral}~TWh liegen in Gebieten, die der Plan für
-dezentrale Lösungen wie Wärmepumpen vorsieht.
+Von den \zkonum{\gasblock}~TWh Gas, die auf Blockebene sichtbar sind, liegen \zkonum{\gasnetz}~TWh in Gebieten, die bis 2045 an ein Wärmenetz angeschlossen werden sollen (\autoref{fig:gebiete}). 
+Der größte Block, \kz{gas-bestand}~TWh, liegt bereits heute in Fernwärmegebieten: Hier geht es um Nachverdichtung, also um Gebäude, die neben einem bestehenden Netz noch mit Gas heizen. 
+Weitere \zkonum{\gaspruef}~TWh liegen in Prüfgebieten, deren Versorgungsart offen ist, die aber überwiegend als für Wärmenetze geeignet gelten. 
+Nur \kz{gas-dezentral}~TWh liegen in Gebieten, die der Plan für dezentrale Lösungen wie Wärmepumpen vorsieht.
 
 \begin{figure}[ht]
-\centering
-\begin{minipage}[b]{0.47\linewidth}\centering
-% gestapelte Balken: Segmente in den Kartenfarben, Summe am Balkenende
-\DTLmaxforcolumn{stuetz}{gas-twh}{\stmax}%
-\begin{tikzpicture}[font=\sffamily\footnotesize]
-\DTLforeach*{stuetz}{\stj=jahr,\sta=bestand,\stb=erw30,\stc=erw35,\std=erw40,\ste=erw45,\stt=gas-twh}{%
-  \edef\sty{\fpeval{-0.6*\DTLcurrentindex}}%
-  \gdef\stx{0}%
-  \foreach \v/\f in {\sta/wp-bestand,\stb/wp-erw30,\stc/wp-erw35,\std/wp-erw40,\ste/wp-erw45}{%
-    \zkotest{\v > 0}{%
-      \edef\stw{\fpeval{3.4*\v/\stmax}}%
-      \filldraw[fill=\f,draw=black!35,line width=0.3pt] (\stx cm,\sty) rectangle ++(\stw cm,0.42);
-      \xdef\stx{\fpeval{\stx+\stw}}}{}}
-  \node[left] at (0,\sty+0.21) {\stj};
-  \node[right] at (\stx cm,\sty+0.21) {\zkonum{\stt}\,TWh};
-}
-\end{tikzpicture}
-\caption{Gas 2023 in Wärmenetzgebieten, kumuliert nach Stützjahr.}\label{fig:stuetz}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\linewidth}\centering
-\zkobars[unit=TWh,width=2.6,color=farbe]{betreiber}{gas-twh}
-\caption{Gas 2023 in Wärmenetzgebieten 2045 nach vorgesehenem Betreiber.}\label{fig:betreiber}
-\end{minipage}
+    \centering
+    % \begin{minipage}[b]{0.47\linewidth}\centering
+    % gestapelte Balken: Segmente in den Kartenfarben, Summe am Balkenende
+    \DTLmaxforcolumn{stuetz}{gas-twh}{\stmax}%
+    \begin{tikzpicture}[font=\sffamily\footnotesize]
+    \DTLforeach*{stuetz}{\stj=jahr,\sta=bestand,\stb=erw30,\stc=erw35,\std=erw40,\ste=erw45,\stt=gas-twh}{%
+      \edef\sty{\fpeval{-0.6*\DTLcurrentindex}}%
+      \gdef\stx{0}%
+      \foreach \v/\f in {\sta/wp-bestand,\stb/wp-erw30,\stc/wp-erw35,\std/wp-erw40,\ste/wp-erw45}{%
+        \zkotest{\v > 0}{%
+          \edef\stw{\fpeval{3.4*\v/\stmax}}%
+          \filldraw[fill=\f,draw=black!35,line width=0.3pt] (\stx cm,\sty) rectangle ++(\stw cm,0.42);
+          \xdef\stx{\fpeval{\stx+\stw}}}{}}
+      \node[left] at (0,\sty+0.21) {\stj};
+      \node[right] at (\stx cm,\sty+0.21) {\zkonum{\stt}\,TWh};
+    }
+    \end{tikzpicture}
+    \caption{Gas 2023 in Wärmenetzgebieten, kumuliert nach Stützjahr.}\label{fig:stuetz}
 \end{figure}
 
-Der Großteil dieses Volumens fällt einem einzigen Unternehmen zu (\autoref{fig:betreiber}): In Gebieten,
-für die allein die BEW als Betreiber vorgesehen ist, wurden 2023
-\zkonum{\gasbew}~TWh Gas verbraucht. Zum Vergleich: Der gesamte Fernwärmeverbrauch
-Berlins lag 2023 bei \zkonum{\fwbez}~TWh. Der Wärmeplan beschreibt damit, grob gerechnet,
-ein Absatzpotenzial in der Größenordnung von \zkoshare{\gasbew}{\fwbez} des heutigen
-Marktes -- vor Sanierung und Effizienzgewinnen, die der Plan mit einer Sanierungsrate von 1{,}7\,\% pro Jahr
-ansetzt \parencite{senmvku2026kernaussagen}. Die BEW selbst sieht im Wärmeplan eine wichtige Grundlage für ihren weiteren
-Fernwärmeausbau und Chancen, den Anschlussgrad in bestehenden Netzen zu erhöhen
-\parencite{bew2026gb}. Dieses Volumen ist zugleich die Basis, über die der Umbau
-refinanziert wird: Die BEW investierte 2025 rund 422~Mio.\,Euro und plant bis 2030 ein
-Transformationsprogramm im Milliardenbereich \parencite{bew2026gb}. Je mehr Gebäude
-angeschlossen werden, desto breiter verteilen sich diese Kosten -- und desto mehr hängt
-davon ab, wie die Preise zustande kommen.
+\begin{figure}
+    \centering
+    % \end{minipage}\hfill
+    % \begin{minipage}[b]{0.47\linewidth}\centering
+    \zkobars[unit=TWh,width=2.6,color=farbe]{betreiber}{gas-twh}
+    \caption{Gas 2023 in Wärmenetzgebieten 2045 nach vorgesehenem Betreiber.}\label{fig:betreiber}
+    % \end{minipage}
+\end{figure}
+
+Der Großteil dieses Volumens fällt einem einzigen Unternehmen zu (\autoref{fig:betreiber}): In Gebieten, für die allein die BEW als Betreiber vorgesehen ist, wurden 2023 \zkonum{\gasbew}~TWh Gas verbraucht. 
+Zum Vergleich: Der gesamte Fernwärmeverbrauch Berlins lag 2023 bei \zkonum{\fwbez}~TWh. 
+Der Wärmeplan beschreibt damit, grob gerechnet, ein Absatzpotenzial in der Größenordnung von \zkoshare{\gasbew}{\fwbez} des heutigen Marktes -- vor Sanierung und Effizienzgewinnen, die der Plan mit einer Sanierungsrate von 1{,}7\,\% pro Jahr ansetzt \parencite{senmvku2026kernaussagen}. 
+Die BEW selbst sieht im Wärmeplan eine wichtige Grundlage für ihren weiteren Fernwärmeausbau und Chancen, den Anschlussgrad in bestehenden Netzen zu erhöhen \parencite{bew2026gb}. 
+Dieses Volumen ist zugleich die Basis, über die der Umbau refinanziert wird: Die BEW investierte 2025 rund 422~Mio.\,Euro und plant bis 2030 ein Transformationsprogramm im Milliardenbereich \parencite{bew2026gb}. 
+Je mehr Gebäude angeschlossen werden, desto breiter verteilen sich diese Kosten -- und desto mehr hängt davon ab, wie die Preise zustande kommen.
 
 % =====================================================================
 \section{Datenlage und Transparenz}
 % =====================================================================
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=0.78\linewidth]{abb/karte.pdf}
-\caption{Wärmeversorgungsgebiete 2045 (Farben der offiziellen
-Wärmeplan-Legende) und gesperrte Gasblöcke (Punkte). Quelle: Wärmeplan Berlin, Energieatlas.}\label{fig:karte}
+    \centering
+    \includegraphics[width=\linewidth]{abb/karte.pdf}
+    \caption{Wärmeversorgungsgebiete 2045 (Farben der offiziellen
+    Wärmeplan-Legende) und gesperrte Gasblöcke (Punkte). Quelle: Wärmeplan Berlin, Energieatlas.}\label{fig:karte}
 \end{figure}
 
-Der Energieatlas veröffentlicht Verbräuche je Block, sperrt sie aber, wenn ein Block
-zu wenige Abnehmer hat, um Rückschlüsse auf Einzelne auszuschließen. Gesperrte Blöcke
-sind daher typischerweise Blöcke mit einem oder wenigen großen Verbrauchern.
+Der Energieatlas veröffentlicht Verbräuche je Block, sperrt sie aber, wenn ein Block zu wenige Abnehmer hat, um Rückschlüsse auf Einzelne auszuschließen. Gesperrte Blöcke sind daher typischerweise Blöcke mit einem oder wenigen großen Verbrauchern.
 
 \begin{itemize}[leftmargin=14pt]
-\item \textbf{Gemessene Lücke.} Die Summe der sichtbaren Blockwerte bleibt beim Gas um
-  \zkoshare{\gasbez-\gasblock}{\gasbez}, bei der Fernwärme um
-  \zkoshare{\fwbez-\fwblock}{\fwbez} hinter den Bezirkssummen zurück.
-\item \textbf{Wachsende Sperrung.} \zkonum[0]{\gesperrt} Gasblöcke waren 2023 gesperrt,
-  \zkogrowth{\gesperrtalt}{\gesperrt} mehr als 2021. Der Anstieg erfolgte
-  sprunghaft zwischen 2021 und 2022; ob mehr Großabnehmer oder eine geänderte
-  Veröffentlichungspraxis die Ursache sind, lässt sich aus den Daten nicht bestimmen.
-\item \textbf{Räumliche Verteilung der Lücke.} Rund \zkonum[0]{\gesperrtnetz} der gesperrten
-  Gasblöcke (\zkoshare{\gesperrtnetz}{\gesperrt}) liegen in künftigen Wärmenetzgebieten,
-  \zkonum[0]{\gesperrtbestand} allein in heutigen Fernwärmegebieten (\autoref{fig:karte}).
-\item \textbf{Fehlendes Statusfeld bei der Fernwärme.} Anders als beim Gas weist der Fernwärme-Datensatz
-  nicht aus, ob ein fehlender Wert gesperrt ist oder ob kein Anschluss besteht.
-\item \textbf{Unveröffentlichte Netzkarten.} Die Karten der Fernwärme- und Gasnetze des
-  Wärmeplans werden aus Gründen des Infrastrukturschutzes nicht
-  veröffentlicht \parencite{senmvku2026karten}.
+    \item \textbf{Gemessene Lücke.} Die Summe der sichtbaren Blockwerte bleibt beim Gas um   \zkoshare{\gasbez-\gasblock}{\gasbez}, bei der Fernwärme um \zkoshare{\fwbez-\fwblock}{\fwbez} hinter den Bezirkssummen zurück.
+    \item \textbf{Wachsende Sperrung.} \zkonum[0]{\gesperrt} Gasblöcke waren 2023 gesperrt,   \zkogrowth{\gesperrtalt}{\gesperrt} mehr als 2021. 
+    Der Anstieg erfolgte sprunghaft zwischen 2021 und 2022; ob mehr Großabnehmer oder eine geänderte   Veröffentlichungspraxis die Ursache sind, lässt sich aus den Daten nicht bestimmen.
+    \item \textbf{Räumliche Verteilung der Lücke.} Rund \zkonum[0]{\gesperrtnetz} der gesperrten   Gasblöcke (\zkoshare{\gesperrtnetz}{\gesperrt}) liegen in künftigen Wärmenetzgebieten,   \zkonum[0]{\gesperrtbestand} allein in heutigen Fernwärmegebieten (\autoref{fig:karte}).
+    \item \textbf{Fehlendes Statusfeld bei der Fernwärme.} 
+    Anders als beim Gas weist der Fernwärme-Datensatz   nicht aus, ob ein fehlender Wert gesperrt ist oder ob kein Anschluss besteht. 
+    \item \textbf{Unveröffentlichte Netzkarten.} Die Karten der Fernwärme- und Gasnetze des   Wärmeplans werden aus Gründen des Infrastrukturschutzes nicht veröffentlicht \parencite{senmvku2026karten}.
 \end{itemize}
 
-Ökonomisch ist das der kritische Punkt. Ein großer Abnehmer in einem Fernwärmegebiet
-steht einem Monopolanbieter gegenüber und kann selbst kaum ausweichen -- ein
-\emph{bilaterales Monopol}, in dem der Preis Verhandlungssache ist. Genau diese
-Verhandlungen sind für Außenstehende unsichtbar.
+Ökonomisch ist das der kritische Punkt. 
+Ein großer Abnehmer in einem Fernwärmegebiet steht einem Monopolanbieter gegenüber und kann selbst kaum ausweichen -- ein \emph{bilaterales Monopol}, in dem der Preis Verhandlungssache ist. Diese Verhandlungen sind für Außenstehende unsichtbar.
 
-Wie stark ein Abnehmer verhandeln kann, hängt von seiner Ausweichmöglichkeit ab.
-Daraus ergibt sich eine Rangfolge (\autoref{tab:typen}), die sich in einem einzigen Quartier, dem
-Health Innovation Quartier (\autoref{sec:hiq}), vollständig wiederfindet.
+Wie stark ein Abnehmer verhandeln kann, hängt von seiner Ausweichmöglichkeit ab. 
+Daraus ergibt sich eine Rangfolge (\autoref{tab:typen}), die sich in einem einzigen Quartier, dem Health Innovation Quartier (\autoref{sec:hiq}), vollständig wiederfindet.
 
 \begin{table}[ht]
-\small\centering
-\begin{tabularx}{\linewidth}{@{}>{\raggedright}p{2.6cm}>{\raggedright}p{3.4cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.0cm}@{}}
-\toprule
-Abnehmer & Beispiel im HIQ & Ausweichmöglichkeit & Verhandlungsposition \\
-\midrule
-Industrie & Standort Müllerstraße & eigene Erzeugung, Prozesswärme & vergleichsweise stark \\
-Landeseinrichtungen mit eigener Anlage & Campus Virchow-Klinikum & eigene KWK-Anlage im Contracting & begrenzt, an Vertragslaufzeit gebunden \\
-Bund & Ministerien, Bundeswehrkrankenhaus & Bündelung (BImA), eigene Erzeugung möglich & mittel, politisches Gewicht \\
-Landeseinrichtungen im Rahmenvertrag & Campus Charité Mitte & keine & keine im üblichen Sinn: Käufer und Eigentümer sind dasselbe Land \\
-Kleinabnehmer & Wohngebäude & keine & Standardtarif \\
-\bottomrule
-\end{tabularx}
-
-\caption{Verhandlungsmacht gegenüber dem Fernwärmeversorger. Zuordnung der
-Beispiele nach Lage und öffentlich zugänglichen Angaben; die Teilnahme der Charité am Rahmenvertrag ist öffentlich nicht dokumentiert.}\label{tab:typen}
+    \small\centering
+    \begin{tabularx}{\linewidth}{@{}>{\raggedright}p{2.8cm}>{\raggedright}p{3.4cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.0cm}@{}}
+        \toprule
+        Abnehmer & Beispiel im HIQ & Ausweichmöglichkeit & Verhandlungsposition \\
+        \midrule
+        Industrie & Standort Müllerstraße & eigene Erzeugung, Prozesswärme & vergleichsweise stark \\
+        Landeseinrichtungen mit eigener Anlage & Campus Virchow-Klinikum & eigene KWK-Anlage im Contracting & begrenzt, an Vertragslaufzeit gebunden \\
+        Bund & Ministerien, Bundeswehrkrankenhaus & Bündelung (BImA), eigene Erzeugung möglich & mittel, politisches Gewicht \\
+        Landeseinrichtungen im Rahmenvertrag & Campus Charité Mitte & keine & keine im üblichen Sinn: Käufer und Eigentümer sind dasselbe Land \\
+        Kleinabnehmer & Wohngebäude & keine & Standardtarif \\
+        \bottomrule
+    \end{tabularx}
+    
+    \caption{Verhandlungsmacht gegenüber dem Fernwärmeversorger. Zuordnung der
+    Beispiele nach Lage und öffentlich zugänglichen Angaben; die Teilnahme der Charité am Rahmenvertrag ist öffentlich nicht dokumentiert.}\label{tab:typen}
 \end{table}
 
 % =====================================================================
 \section{Zuständigkeiten und Aufsicht}
 % =====================================================================
 
-Die Preismissbrauchsaufsicht über einen Versorger, dessen Tätigkeit auf ein Land
-beschränkt ist, liegt bei der Landeskartellbehörde (§\,48 Abs.\,2 GWB). In Berlin ist
-sie Teil der Senatsverwaltung für Wirtschaft, Energie und Betriebe, ebenso die
-Regulierungsbehörde für Fernwärme nach dem Berliner Energiewendegesetz. Der Senat
-erklärte im August 2026, ihm lägen keine Kostenkalkulationen der Wärmenetzbetreiber vor
-und es bestehe keine Rechtsgrundlage, sie zu erheben -- außer im Rahmen der
-kartellrechtlichen Missbrauchsaufsicht; für Preise verwies er auf die freiwillige
-Plattform der Branchenverbände \parencite{agh2026s1926754}. 
+Die Preismissbrauchsaufsicht über einen Versorger, dessen Tätigkeit auf ein Land beschränkt ist, liegt bei der Landeskartellbehörde (§\,48 Abs.\,2 GWB). 
+In Berlin ist sie Teil der Senatsverwaltung für Wirtschaft, Energie und Betriebe, ebenso die
+Regulierungsbehörde für Fernwärme nach dem Berliner Energiewendegesetz. 
+Der Senat erklärte im August 2026, ihm lägen keine Kostenkalkulationen der Wärmenetzbetreiber vor und es bestehe keine Rechtsgrundlage, sie zu erheben -- außer im Rahmen der kartellrechtlichen Missbrauchsaufsicht; für Preise verwies er auf die freiwillige Plattform der Branchenverbände \parencite{agh2026s1926754}. 
 
-Die BEW gehört dem Land mittelbar zu 100\,\% \parencite{senfin2025unternehmen}. Die
-Eigentümerrechte werden nach den Beteiligungsgrundsätzen von 2024 ausgeübt: Für jedes
-Beteiligungsunternehmen beschließt der Senat jährlich finanz- und fachpolitische Ziele
-als Zielbilder; sie sind Grundlage der Zielvereinbarungen zwischen Aufsichtsrat und
-Geschäftsführung und werden durch Quartalsberichte mit Soll-Ist-Vergleichen sowie den
-jährlichen Beteiligungsbericht begleitet
-\parencite{senat2024beteiligungsgrundsaetze,senfin2025beteiligung}. Derselbe Senat, in
-dessen Verwaltung die Preismissbrauchsaufsicht angesiedelt ist, gibt dem
-Fernwärmeversorger also auch seine wirtschaftlichen Ziele vor. Die finanzpolitischen
-Ziele des Eigentümers und das Interesse der Kunden an niedrigen Preisen werden damit innerhalb
-derselben Landesregierung abgewogen -- ohne dass diese Abwägung von außen sichtbar ist.
+Die BEW gehört dem Land mittelbar zu 100\,\% \parencite{senfin2025unternehmen}. 
+Die Eigentümerrechte werden nach den Beteiligungsgrundsätzen von 2024 ausgeübt: Für jedes Beteiligungsunternehmen beschließt der Senat jährlich finanz- und fachpolitische Ziele als Zielbilder; sie sind Grundlage der Zielvereinbarungen zwischen Aufsichtsrat und Geschäftsführung und werden durch Quartalsberichte mit Soll-Ist-Vergleichen sowie den jährlichen Beteiligungsbericht begleitet \parencite{senat2024beteiligungsgrundsaetze,senfin2025beteiligung}. 
+Derselbe Senat, in dessen Verwaltung die Preismissbrauchsaufsicht angesiedelt ist, gibt dem Fernwärmeversorger also auch seine wirtschaftlichen Ziele vor. 
+Die finanzpolitischen Ziele des Eigentümers und das Interesse der Kunden an niedrigen Preisen werden damit innerhalb derselben Landesregierung abgewogen -- ohne dass diese Abwägung von außen sichtbar ist.
 
 
-Wie eng Eigentum und Aufsicht verbunden sind, zeigt die Besetzung: Den Vorsitz im
-Aufsichtsrat der BEW führt laut Geschäftsbericht 2025 die Senatorin für Wirtschaft,
-Energie und Betriebe -- also die Leiterin jener Verwaltung, in der auch
-Landeskartellbehörde und Regulierungsbehörde für Fernwärme angesiedelt sind
-\parencite{bew2026gb}. Auch die finanziellen Beziehungen sind erheblich: 2024 führte
-das Land der BEW 495~Mio.\,Euro Eigenkapital zu, der im November 2025 beschlossene
-Klimapakt sieht weitere 550~Mio.\,Euro vor; 2025 zahlte die BEW 56~Mio.\,Euro aus ihrer
-Kapitalrücklage an die Landesholding aus. Bei einem Fernwärmeumsatz von
-1.145~Mio.\,Euro und einem Absatz von 8.576~GWh lag der Durchschnittserlös 2025 bei rund
-\zkonum{100*1145.0/8576}~ct/kWh; die Leistungserlöse stiegen durch die Umstellung von
-Verträgen auf einen neuen Tarif um 50,6~Mio.\,Euro \parencite{bew2026gb}. Seit 2025
-weist der Beteiligungsbericht des Landes die BEW aus
-\parencite{agh2025beteiligungsbericht}.
+Wie eng Eigentum und Aufsicht verbunden sind, zeigt die Besetzung: Den Vorsitz im Aufsichtsrat der BEW führt laut Geschäftsbericht 2025 die Senatorin für Wirtschaft, Energie und Betriebe -- also die Leiterin jener Verwaltung, in der auch Landeskartellbehörde und Regulierungsbehörde für Fernwärme angesiedelt sind \parencite{bew2026gb}. 
+Auch die finanziellen Beziehungen sind erheblich: 2024 führte das Land der BEW 495~Mio.\,Euro Eigenkapital zu, der im November 2025 beschlossene Klimapakt sieht weitere 550~Mio.\,Euro vor; 2025 zahlte die BEW 56~Mio.\,Euro aus ihrer Kapitalrücklage an die Landesholding aus. 
+Bei einem Fernwärmeumsatz von 1.145~Mio.\,Euro und einem Absatz von 8.576~GWh lag der Durchschnittserlös 2025 bei rund \zkonum{100*1145.0/8576}~ct/kWh; die Leistungserlöse stiegen durch die Umstellung von Verträgen auf einen neuen Tarif um 50,6~Mio.\,Euro \parencite{bew2026gb}. 
+Seit 2025 weist der Beteiligungsbericht des Landes die BEW aus \parencite{agh2025beteiligungsbericht}.
 
-Hinzu kommt, dass das Land auch der größte gebündelte Abnehmer ist. Die
-Energiewirtschaftsstelle des Landes kauft Strom, Gas und Fernwärme zentral ein, nicht
-nur für die Verwaltung, sondern auch für Universitäten, Hochschulen und Krankenhäuser;
-nach eigenen Angaben rund 1.700 Fernwärme-Abnahmestellen mit etwa 850~GWh im
-Jahr \parencite{ews}. Grundlage
-ist eine zentrale Rahmenvereinbarung mit dem Fernwärmeversorger \parencite{agh2023s1917214}, seit 2024 also mit dem landeseigenen Unternehmen. Der Preis
-in diesem Vertrag ist damit eine Verrechnung zwischen öffentlichen Haushalten: Was
-Kliniken, Hochschulen und Bezirke zahlen, ist Umsatz der BEW. Ob er über oder unter dem
-liegt, was vergleichbare private Abnehmer zahlen -- ob also private Kunden öffentliche
-quersubventionieren oder umgekehrt --, lässt sich von außen nicht prüfen.
-Ob die Charité an diesen Rahmenverträgen teilnimmt, geht aus den öffentlichen Angaben
-nicht hervor.
+Hinzu kommt, dass das Land auch der größte gebündelte Abnehmer ist. 
+Die Energiewirtschaftsstelle des Landes kauft Strom, Gas und Fernwärme zentral ein, nicht nur für die Verwaltung, sondern auch für Universitäten, Hochschulen und Krankenhäuser; nach eigenen Angaben rund 1.700 Fernwärme-Abnahmestellen mit etwa 850~GWh im Jahr \parencite{ews}. 
+Grundlage ist eine zentrale Rahmenvereinbarung mit dem Fernwärmeversorger \parencite{agh2023s1917214}, seit 2024 also mit dem landeseigenen Unternehmen. 
+Der Preis in diesem Vertrag ist damit eine Verrechnung zwischen öffentlichen Haushalten: 
+Was Kliniken, Hochschulen und Bezirke zahlen, ist Umsatz der BEW. 
+Ob er über oder unter dem liegt, was vergleichbare private Abnehmer zahlen -- ob also private Kunden öffentliche quersubventionieren oder umgekehrt --, lässt sich von außen nicht prüfen.
+Ob die Charité an diesen Rahmenverträgen teilnimmt, geht aus den öffentlichen Angaben nicht hervor.
 
 % =====================================================================
 \section{Empfehlungen}
 % =====================================================================
 
 \begin{enumerate}[leftmargin=16pt]
-\item \textbf{Messbarkeit der Datenlücke.} Fernwärmedaten mit Statusfeld veröffentlichen wie
-  beim Gas; gesperrte Werte aggregiert je Wärmeversorgungsgebiet ausweisen, sodass die
-  Lücke nicht verschwindet, sondern beziffert wird.
-\item \textbf{Preistransparenz auch für Großkunden.} Die geplante Bundesplattform sollte
-  neben Standardtarifen eine anonymisierte Verteilung der Preise aus
-  Sonderkundenverträgen je Netzgebiet enthalten.
-\item \textbf{Trennung der Rollen.} Für Wärmeversorger im Eigentum eines Landes sollte die
-  Preisaufsicht bei der künftigen Bundesbehörde liegen, nicht in der Landesverwaltung.
-\item \textbf{Offenlegung von Rahmenvertrag und Eigentümerzielen.} Preis, Menge und
-  Anpassungsklauseln der Rahmenvereinbarung zwischen Land und BEW betreffen öffentliche
-  Mittel auf beiden Seiten und wären der Maßstab für alle übrigen Abnehmer. Gleiches gilt
-  für die finanzpolitischen Ziele, die der Senat der BEW als Eigentümer vorgibt.
-\item \textbf{Ausnahme öffentlicher Abnehmer von der Sperrregel.} Die Sperrregel schützt
-  Einzelpersonen und Unternehmen; für öffentliche Einrichtungen gibt es keinen
-  vergleichbaren Grund. Ausnahmen bleiben für sicherheitsrelevante Standorte möglich.
+    \item \textbf{Messbarkeit der Datenlücke.} 
+    Fernwärmedaten mit Statusfeld veröffentlichen wie beim Gas; gesperrte Werte aggregiert je Wärmeversorgungsgebiet ausweisen, sodass die Lücke nicht verschwindet, sondern beziffert wird.
+     \item \textbf{Preistransparenz auch für Großkunden.} 
+     Die geplante Bundesplattform sollte neben Standardtarifen eine anonymisierte Verteilung der Preise aus Sonderkundenverträgen je Netzgebiet enthalten.
+    \item \textbf{Trennung der Rollen.} 
+    Für Wärmeversorger im Eigentum eines Landes sollte die Preisaufsicht bei der künftigen Bundesbehörde liegen, nicht in der Landesverwaltung.
+    \item \textbf{Offenlegung von Rahmenvertrag und Eigentümerzielen.} 
+    Preis, Menge und Anpassungsklauseln der Rahmenvereinbarung zwischen Land und BEW betreffen öffentliche Mittel auf beiden Seiten und wären der Maßstab für alle übrigen Abnehmer. 
+    Gleiches gilt für die finanzpolitischen Ziele, die der Senat der BEW als Eigentümer vorgibt.
+    \item \textbf{Ausnahme öffentlicher Abnehmer von der Sperrregel.} 
+    Die Sperrregel schützt Einzelpersonen und Unternehmen; für öffentliche Einrichtungen gibt es keinen vergleichbaren Grund. 
+    Ausnahmen bleiben für sicherheitsrelevante Standorte möglich.
 \end{enumerate}
 
-\textbf{Gegenargumente.} Der BDEW unterstützt eine stärkere Preisaufsicht
-grundsätzlich, warnt aber vor Doppelregulierung und zusätzlicher Bürokratie; neue
-Instrumente sollten an die bestehende kartellrechtliche Missbrauchsaufsicht anknüpfen,
-Preisdeckel ausgeschlossen bleiben, und notwendige Investitionen müssten refinanzierbar
-bleiben \parencite{bdew2026presse,bdew2026stellungnahme}. Angesichts des
-Investitionsbedarfs (\autoref{sec:stand}) ist dieser Einwand ernst zu nehmen. Er
-spricht allerdings nicht gegen Transparenz: Gerade wenn Investitionen über Preise
-refinanziert werden, muss nachvollziehbar sein, wer sie trägt. Grenzen setzen
-Datenschutz und der Schutz kritischer Infrastruktur \parencite{senmvku2026karten}. Die Empfehlungen
-tragen dem Rechnung: Sie betreffen die Offenlegung von Mengen, Preisen und
-Zuständigkeiten, nicht deren Höhe; wo Datenschutz oder Infrastrukturschutz entgegenstehen,
-genügen aggregierte Angaben je Wärmeversorgungsgebiet.
+\textbf{Gegenargumente.} 
+Der BDEW unterstützt eine stärkere Preisaufsicht grundsätzlich, warnt aber vor Doppelregulierung und zusätzlicher Bürokratie; neue Instrumente sollten an die bestehende kartellrechtliche Missbrauchsaufsicht anknüpfen, Preisdeckel ausgeschlossen bleiben, und notwendige Investitionen müssten refinanzierbar bleiben \parencite{bdew2026presse,bdew2026stellungnahme}. 
+Angesichts des Investitionsbedarfs (\autoref{sec:stand}) ist dieser Einwand ernst zu nehmen. 
+Er spricht allerdings nicht gegen Transparenz: Gerade wenn Investitionen über Preise refinanziert werden, muss nachvollziehbar sein, wer sie trägt. 
+Grenzen setzen Datenschutz und der Schutz kritischer Infrastruktur \parencite{senmvku2026karten}. 
+Die Empfehlungen tragen dem Rechnung: 
+Sie betreffen die Offenlegung von Mengen, Preisen und Zuständigkeiten, nicht deren Höhe; wo Datenschutz oder Infrastrukturschutz entgegenstehen, genügen aggregierte Angaben je Wärmeversorgungsgebiet.
 
 % =====================================================================
 \section{Fallstudie: Health Innovation Quartier}\label{sec:hiq}
@@ -418,68 +336,51 @@ genügen aggregierte Angaben je Wärmeversorgungsgebiet.
 \kzhget{hiq-gas-netz}{\hnetz}
 \kzhget{hiq-gas-top1}{\hone} \kzhget{hiq-top1-ha}{\honeha} \kzhget{hiq-top2-ha}{\htopha}
 
-Das Health Innovation Quartier (HIQ) ist der neue Berliner Zukunftsort. Es besteht
-aus zwei Teilflächen mit zusammen \kzh{hiq-ha}~ha.\footnote{Umriss nachgezeichnet nach \textcite{blc2026wirtschaftsatlas}; er ist nicht als Geodatensatz veröffentlicht.} Vollständig im Umriss liegen
-\zkonum[0]{\hbl} statistische Blöcke.
+Das Health Innovation Quartier (HIQ) ist der neue Berliner Zukunftsort. 
+Es besteht aus zwei Teilflächen mit zusammen \kzh{hiq-ha}~ha.\footnote{Umriss nachgezeichnet nach \textcite{blc2026wirtschaftsatlas}; er ist nicht als Geodatensatz veröffentlicht.} 
+Vollständig im Umriss liegen \zkonum[0]{\hbl} statistische Blöcke.
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width=0.95\linewidth]{abb/karte_hiq.pdf}
-\caption{Health Innovation Quartier (schwarzer Umriss):
-Wärmeversorgungsgebiete 2045 (Farben der offiziellen
-Wärmeplan-Legende), gesperrte Gasblöcke (schraffiert) und die zwei
-verbrauchsstärksten Blöcke; Umgebung aufgehellt. Quelle: Wärmeplan Berlin, Energieatlas, eigener Umriss.}\label{fig:hiq}
+    \centering
+    \includegraphics[width=0.95\linewidth]{abb/karte_hiq.pdf}
+    \caption{Health Innovation Quartier (schwarzer Umriss):
+    Wärmeversorgungsgebiete 2045 (Farben der offiziellen Wärmeplan-Legende), gesperrte Gasblöcke (schraffiert) und die zwei verbrauchsstärksten Blöcke; Umgebung aufgehellt. Quelle: Wärmeplan Berlin, Energieatlas, eigener Umriss.}\label{fig:hiq}
 \end{figure}
 
 \begin{itemize}[leftmargin=14pt]
-\item \textbf{Wenige Großabnehmer.} Die Blöcke verbrauchten 2023 sichtbar
-  \zkonum[0]{\hgas}~GWh Gas und \zkonum[0]{\hfw}~GWh Fernwärme. Zwei Blöcke stehen für
-  \zkonum[0]{\htop}~GWh, also \zkoshare{\htop}{\hgas} des sichtbaren Gasverbrauchs. Nach
-  ihrer Lage sind das ein Industriestandort an der Müllerstraße (Bayer,
-  \zkonum[0]{\hone}~GWh) und der Campus Virchow-Klinikum der Charité in der nördlichen
-  Teilfläche.\footnote{Der Energieatlas nennt keine Verbraucher; die Zuordnung beruht
-  auf der Lage der Blöcke.}
-\item \textbf{Gas als Brennstoff eigener Anlagen.} Der Campus Virchow-Klinikum wird seit
-  2017 von einer eigenen Energiezentrale mit Kraft-Wärme-Kälte-Kopplung versorgt, die ein
-  Contractor für 15 Jahre plant, finanziert und betreibt \parencite{agh2021s1826180,ikz2017charite,dbz2019charite}. Der Gasverbrauch dort ist also überwiegend Brennstoff für
-  Strom, Wärme und Kälte. Je Hektar Blockfläche ist der Gasverbrauch im HIQ rund
-  \zkonum[0]{(\hgas/\hha)/(\bgas/\bha)}-mal so hoch wie im Berliner Durchschnitt; ohne
-  die beiden Großblöcke noch rund
-  \zkonum[0]{((\hgas-\htop)/(\hha-\htopha))/(\bgas/\bha)}-mal.
-\item \textbf{Vertragsende um 2032.} Der Campus liegt vollständig in einem
-  Fernwärme-Bestandsgebiet der BEW. Mit dem Ende der Contracting-Laufzeit steht die
-  Charité vor der Wahl: eigene Anlage erneuern oder an die Fernwärme anschließen. Ihre
-  Verhandlungsposition hängt davon ab, ob die eigene Option glaubwürdig bleibt. Das Jahr ergibt sich rechnerisch aus Vertragsbeginn 2017 und
-  15 Jahren Laufzeit; Verlängerungsoptionen sind öffentlich nicht bekannt.
-\item \textbf{Fehlende Daten zur Charité Mitte.} \zkonum[0]{\hges} der \zkonum[0]{\hbl}
-  Blöcke (\zkoshare{\hges}{\hbl}) sind gesperrt, gegenüber \zkoshare{\bges}{\bbl} in ganz
-  Berlin. Sie umfassen \kzh{hiq-gesperrt-ha}~ha, darunter nahezu den gesamten
-  Campus Mitte der Charité (\autoref{fig:hiq}). Dessen Fernwärmebezug ist sichtbar, sein
-  Gasverbrauch nicht.
-\item \textbf{Konzentration auf einen Betreiber.} \zkoshare{\hnetz}{\hgas} des sichtbaren Gasverbrauchs
-  liegen in Wärmenetzgebieten, für die ausschließlich die BEW vorgesehen ist; der größte
-  Einzelverbraucher, der Industriestandort, liegt in einem Erweiterungsgebiet bis 2030.
-  Damit treffen im Quartier alle Abnehmertypen aus \autoref{tab:typen} auf denselben Anbieter.
+    \item \textbf{Wenige Großabnehmer.} Die Blöcke verbrauchten 2023 sichtbar \zkonum[0]{\hgas}~GWh Gas und \zkonum[0]{\hfw}~GWh Fernwärme. 
+    Zwei Blöcke stehen für \zkonum[0]{\htop}~GWh, also \zkoshare{\htop}{\hgas} des sichtbaren Gasverbrauchs. 
+    Nach ihrer Lage sind das ein Industriestandort an der Müllerstraße (Bayer, \zkonum[0]{\hone}~GWh) und der Campus Virchow-Klinikum der Charité in der nördlichen Teilfläche.\footnote{Der Energieatlas nennt keine Verbraucher; die Zuordnung beruht auf der Lage der Blöcke.}
+    \item \textbf{Gas als Brennstoff eigener Anlagen.} 
+    Der Campus Virchow-Klinikum wird seit 2017 von einer eigenen Energiezentrale mit Kraft-Wärme-Kälte-Kopplung versorgt, die ein Contractor für 15 Jahre plant, finanziert und betreibt \parencite{agh2021s1826180,ikz2017charite,dbz2019charite}. 
+    Der Gasverbrauch dort ist also überwiegend Brennstoff für Strom, Wärme und Kälte. 
+    Je Hektar Blockfläche ist der Gasverbrauch im HIQ rund \zkonum[0]{(\hgas/\hha)/(\bgas/\bha)}-mal so hoch wie im Berliner Durchschnitt; ohne die beiden Großblöcke noch rund \zkonum[0]{((\hgas-\htop)/(\hha-\htopha))/(\bgas/\bha)}-mal.
+    \item \textbf{Vertragsende um 2032.} 
+    Der Campus liegt vollständig in einem Fernwärme-Bestandsgebiet der BEW. 
+    Mit dem Ende der Contracting-Laufzeit steht die Charité vor der Wahl: eigene Anlage erneuern oder an die Fernwärme anschließen. 
+    Ihre Verhandlungsposition hängt davon ab, ob die eigene Option glaubwürdig bleibt. 
+    Das Jahr ergibt sich rechnerisch aus Vertragsbeginn 2017 und 15 Jahren Laufzeit; Verlängerungsoptionen sind öffentlich nicht bekannt.
+    \item \textbf{Fehlende Daten zur Charité Mitte.} \zkonum[0]{\hges} der \zkonum[0]{\hbl} Blöcke (\zkoshare{\hges}{\hbl}) sind gesperrt, gegenüber \zkoshare{\bges}{\bbl} in ganz   Berlin. 
+    Sie umfassen \kzh{hiq-gesperrt-ha}~ha, darunter nahezu den gesamten Campus Mitte der Charité (\autoref{fig:hiq}). 
+    Dessen Fernwärmebezug ist sichtbar, sein Gasverbrauch nicht.
+    \item \textbf{Konzentration auf einen Betreiber.} \zkoshare{\hnetz}{\hgas} des sichtbaren Gasverbrauchs liegen in Wärmenetzgebieten, für die ausschließlich die BEW vorgesehen ist; der größte Einzelverbraucher, der Industriestandort, liegt in einem Erweiterungsgebiet bis 2030.
+    Damit treffen im Quartier alle Abnehmertypen aus \autoref{tab:typen} auf denselben Anbieter.
 \end{itemize}
 
-Das HIQ zeigt die Befunde dieser Analyse im Kleinen: Die Wärmewende des Quartiers
-entscheidet sich an wenigen Verträgen zwischen wenigen großen Abnehmern und einem
-landeseigenen Monopolanbieter -- in einem Quartier, das das Land selbst als
-Zukunftsort fördert. Ob das Quartier seine Wärme künftig bezahlbar und klimaneutral
-bezieht, entscheidet sich damit weniger am Wärmeplan als an den Bedingungen dieser
-Verträge, die öffentlich nicht einsehbar sind. Gerade hier wären die Offenlegung von
-Rahmenvertrag und Großkundenpreisen (Empfehlungen 2 und 4) besonders aufschlussreich.
+Das HIQ zeigt die Befunde dieser Analyse im Kleinen: Die Wärmewende des Quartiers entscheidet sich an wenigen Verträgen zwischen wenigen großen Abnehmern und einem landeseigenen Monopolanbieter -- in einem Quartier, das das Land selbst als Zukunftsort fördert. 
+Ob das Quartier seine Wärme künftig bezahlbar und klimaneutral bezieht, entscheidet sich damit weniger am Wärmeplan als an den Bedingungen dieser Verträge, die öffentlich nicht einsehbar sind. 
+Gerade hier wären die Offenlegung von Rahmenvertrag und Großkundenpreisen (Empfehlungen 2 und 4) besonders aufschlussreich.
 
 {\small
 \begin{center}
-\begin{tabular}{@{}lrrr@{}}
-\toprule
-Auswahlregel & Blöcke & Gas (GWh) & Fernwärme (GWh) \\
-\midrule
-vollständig im Umriss (Hauptregel) & \kzh{hiq-innerhalb-bloecke} & \kzh{hiq-innerhalb-gas} & \kzh{hiq-innerhalb-fw} \\
-mehr als 50\,\% der Blockfläche & \kzh{hiq-mehrheit-bloecke} & \kzh{hiq-mehrheit-gas} & \kzh{hiq-mehrheit-fw} \\
-schneidet den Umriss & \kzh{hiq-schneidet-bloecke} & \kzh{hiq-schneidet-gas} & \kzh{hiq-schneidet-fw} \\
-\bottomrule
+    \begin{tabular}{@{}lrrr@{}}
+    \toprule
+    Auswahlregel & Blöcke & Gas (GWh) & Fernwärme (GWh) \\
+    \midrule
+    vollständig im Umriss (Hauptregel) & \kzh{hiq-innerhalb-bloecke} & \kzh{hiq-innerhalb-gas} & \kzh{hiq-innerhalb-fw} \\
+    mehr als 50\,\% der Blockfläche & \kzh{hiq-mehrheit-bloecke} & \kzh{hiq-mehrheit-gas} & \kzh{hiq-mehrheit-fw} \\
+    schneidet den Umriss & \kzh{hiq-schneidet-bloecke} & \kzh{hiq-schneidet-gas} & \kzh{hiq-schneidet-fw} \\
+    \bottomrule
 \end{tabular}
 
 \captionof{table}{Empfindlichkeit gegenüber der Auswahlregel. Der Gasverbrauch ist robust;
@@ -491,13 +392,10 @@ bei der Fernwärme kommen Randblöcke hinzu.}\label{tab:regel}
 % =====================================================================
 
 {\small
-Gasverbrauch 2023 je Block \parencite{geoportal2026gas} wurde flächenanteilig
-auf die Teilblöcke des Wärmeplans 2026 \parencite{geoportal2026wp} verteilt; Fernwärme- und
-Bezirksdaten aus \textcite{geoportal2026fw}. Gasverbrauch ist nicht gleich Wärmebedarf (Kochgas,
-Prozesswärme, Wirkungsgrade); die Werte sind nicht witterungsbereinigt. Die Differenz
-zwischen Block- und Bezirkssummen kann neben gesperrten Werten auch nicht zuordenbare
-Verbräuche enthalten. Alle Zahlen in diesem Text werden beim Kompilieren aus den Daten
-berechnet. Die zugrunde liegende Pipeline ist dokumentiert unter
+Gasverbrauch 2023 je Block \parencite{geoportal2026gas} wurde flächenanteilig auf die Teilblöcke des Wärmeplans 2026 \parencite{geoportal2026wp} verteilt; Fernwärme- und Bezirksdaten aus \textcite{geoportal2026fw}. 
+Gasverbrauch ist nicht gleich Wärmebedarf (Kochgas, Prozesswärme, Wirkungsgrade); die Werte sind nicht witterungsbereinigt. 
+Die Differenz zwischen Block- und Bezirkssummen kann neben gesperrten Werten auch nicht zuordenbare Verbräuche enthalten. 
+\hl{Alle Zahlen in diesem Text entstammen den öffentlichen Daten aus dem Energieatlas Berlin, automatisiert abgefragt, und werden beim Kompilieren aus den Daten berechnet.} Die zugrunde liegende Pipeline ist dokumentiert unter
 \url{https://github.com/penta-jan/zko-pipeline}; Code und Daten dieser Analyse:
 \url{https://github.com/penta-jan/Fernwaerme-Berlin-Kurzanalyse}.\par}
 
