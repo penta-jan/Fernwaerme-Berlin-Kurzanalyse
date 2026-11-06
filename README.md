@@ -7,7 +7,7 @@ werden beim Kompilieren aus den Ergebnisdateien berechnet (Pipeline: `zkopipelin
 ```sh
 python3 daten/abruf.py        # WFS-Daten laden (Geoportal Berlin, ca. 70 MB) -> daten/roh/
 python3 daten/auswertung.py   # Verschneidung, Kennzahlen, Karte -> daten/ergebnis/, abb/
-cd daten && python3 hiq.py && cd ..   # Fallstudie HIQ (Umriss: daten/hiq.geojson)
+cd daten && python3 hiq.py && python3 akteure.py && cd ..   # Fallstudie HIQ (Umriss: daten/hiq.geojson; Akteure über Adressdienst)
 pdflatex kurzanalyse.tex && biber kurzanalyse && pdflatex kurzanalyse.tex && pdflatex kurzanalyse.tex
 ```
 
